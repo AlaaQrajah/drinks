@@ -1,0 +1,57 @@
+{
+  "navbar": {
+    "logo": "TheCocktailDB",
+    "search": "Search..."
+  },
+  "errorpage": {
+    "title": "Opps!",
+    "subtitle": "We Can't Seem to Find The Page You're Looking For.",
+    "description": "It looks like you're trying to access a page that doesn't exist. It might have been moved or deleted.",
+    "link": "Go Back to Home"
+  },
+
+  "footer": {
+    "title": "TheCocktailDB",
+    "subtitle": "Discover and explore the world's finest cocktail recipes. Mix, share, and enjoy responsibly.",
+    "links": {
+      "home": "Home",
+      "about": "About",
+      "recipes": "Recipes",
+      "contact": "Contact"
+    },
+    "categories": {
+      "popular": "Popular Drinks",
+      "latest": "Latest Recipes",
+      "non-alcoholic": "Non-Alcoholic",
+      "random": "Random Drink"
+    },
+    "social": {
+      "facebook": "Facebook",
+      "twitter": "Twitter",
+      "instagram": "Instagram"
+    },
+    "copyright": "Copyright © {year} TheCocktailDB. All rights reserved.",
+    "legal": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service"
+    }
+  },
+  "home": {
+    "title": "Welcome to TheCocktailDB",
+    "description": "Discover and explore a world of delicious cocktail recipes",
+    "features": {
+      "discover": {
+        "title": "Discover Recipes",
+        "description": "Browse through thousands of carefully curated cocktail recipes from around the world"
+      },
+      "explore": {
+        "title": "Explore Categories",
+        "description": "Find your perfect drink by exploring our extensive collection of cocktail categories"
+      },
+      "share": {
+        "title": "Share & Connect",
+        "description": "Share your favorite recipes and connect with other cocktail enthusiasts"
+      }
+    }
+  }
+}

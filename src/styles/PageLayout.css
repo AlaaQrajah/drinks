@@ -1,0 +1,23 @@
+.page-layout {
+  min-height: 100vh;
+  padding-top: 80px; /* Account for fixed navbar */
+  background-color: var(--color-primary);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Add smooth page transitions */
+.page-layout {
+  animation: fadeIn var(--transition-normal);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

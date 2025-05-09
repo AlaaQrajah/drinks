@@ -1,9 +1,8 @@
-import React from "react";
-
-const FormButton = ({ type = "submit", className, text }) => {
+import "../../src/styles/FormButton.css";
+const FormButton = ({ type = "submit", text, onClick }) => {
   return (
-    <button type={type} className={className}>
-      {text}
+    <button type={type} className="btn-donate" onClick={onClick}>
+      <span className="btn-txt"> {text}</span>
     </button>
   );
 };

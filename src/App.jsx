@@ -1,10 +1,9 @@
+import React from "react";
+import LayoutRoute from "./Layout/LayoutRoute";
+import "./styles/index.css";
+
 function App() {
-  return <>
-  
-  
-  
-  
-  </>;
+  return <LayoutRoute />;
 }
 
 export default App;

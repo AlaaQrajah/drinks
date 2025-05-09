@@ -1,0 +1,212 @@
+.footer {
+  background: linear-gradient(
+    to bottom,
+    var(--color-primary-light),
+    var(--bg-overlay-dark)
+  );
+  color: var(--text-primary);
+  padding: var(--spacing-xxl) 0 var(--spacing-xl);
+  margin-top: auto;
+  border-top: 1px solid var(--bg-overlay);
+}
+
+.footer__content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-xxl);
+}
+
+.footer__section {
+  padding: 0 var(--spacing-md);
+}
+
+.footer__title {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  font-size: var(--text-2xl);
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.footer__title img {
+  width: 30px;
+  height: 30px;
+}
+
+.footer__subtitle {
+  color: var(--text-primary);
+  font-size: var(--text-lg);
+  margin-bottom: var(--spacing-md);
+  position: relative;
+  padding-bottom: var(--spacing-sm);
+}
+
+.footer__subtitle span {
+  font-size: var(--text-lg);
+}
+
+.footer__subtitle::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 40px;
+  height: 2px;
+  background: var(--gradient-accent);
+}
+
+.footer__description {
+  color: var(--text-secondary);
+  line-height: var(--leading-relaxed);
+  margin-bottom: var(--spacing-lg);
+}
+
+.footer__links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer__links li {
+  margin-bottom: var(--spacing-sm);
+  display: flex;
+  align-items: center;
+}
+
+.footer__arrow-icon {
+  margin-inline-end: 6px;
+  vertical-align: middle;
+  font-size: 1em;
+  color: var(--color-accent);
+  transition: color 0.3s;
+}
+
+.footer__links li:hover .footer__arrow-icon {
+  animation: arrow-animation 0.5s;
+  color: var(--color-accent-light);
+}
+
+@keyframes arrow-animation {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(8px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.footer__links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: var(--transition-normal);
+  display: inline-block;
+}
+
+.footer__links a:hover {
+  color: var(--color-accent);
+  transform: translateX(8px);
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.footer__social {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.footer__social a {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  background: var(--bg-overlay);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-normal);
+}
+
+.footer__social a:hover {
+  background: var(--gradient-accent);
+  transform: translateY(-3px);
+}
+
+.footer__social-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--text-primary);
+}
+
+.footer__bottom {
+  padding-top: var(--spacing-xl);
+  border-top: 1px solid var(--bg-overlay);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+}
+
+.footer__copyright {
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+}
+
+.footer__legal {
+  display: flex;
+  gap: var(--spacing-lg);
+}
+
+.footer__legal a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: var(--text-sm);
+  transition: color var(--transition-normal);
+}
+
+.footer__legal a:hover {
+  color: var(--text-primary);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .footer {
+    padding: var(--spacing-xxl) 0 var(--spacing-lg);
+  }
+
+  .footer__content {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-lg);
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer__legal {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer__section {
+    padding: 0 var(--spacing-sm);
+  }
+
+  .footer__title {
+    font-size: var(--text-xl);
+  }
+
+  .footer__subtitle {
+    font-size: var(--text-base);
+  }
+}

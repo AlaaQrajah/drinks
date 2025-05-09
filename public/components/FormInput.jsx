@@ -1,15 +1,26 @@
-import React from "react";
+import "../../src/styles/FormInput.css";
 
-const FormInput = ({ value, type, placeholder, className }) => {
+const FormInput = ({
+  value,
+  type,
+  placeholder,
+  className,
+  onChange,
+  icon: Icon,
+}) => {
   return (
-    <>
-      <input
-        type={type}
-        placeholder={placeholder}
-        className={className}
-        value={value}
-      />
-    </>
+    <div className="form-input-wrapper">
+      <div className="input-container">
+        {Icon && <Icon className="input-icon" />}
+        <input
+          type={type}
+          placeholder={placeholder}
+          className={`form-input ${className} ${Icon ? "with-icon" : ""}`}
+          value={value}
+          onChange={onChange}
+        />
+      </div>
+    </div>
   );
 };
 

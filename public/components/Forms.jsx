@@ -9,7 +9,6 @@ const Forms = ({
   name,
   classNameInput,
   htmlFor,
-  classNameButton,
   text,
 }) => {
   return (
@@ -23,7 +22,7 @@ const Forms = ({
           value={value}
         />
       </div>
-      <FormButton text={text} className={classNameButton} />
+      <FormButton text={text} />
     </form>
   );
 };
