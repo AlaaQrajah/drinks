@@ -1,7 +1,8 @@
 {
   "navbar": {
     "logo": "TheCocktailDB",
-    "search": "Search..."
+    "search": "Search...",
+    "home": "Home"
   },
   "errorpage": {
     "title": "Opps!",
@@ -30,7 +31,7 @@
       "twitter": "Twitter",
       "instagram": "Instagram"
     },
-    "copyright": "Copyright © {year} TheCocktailDB. All rights reserved.",
+    "copyright": "Copyright © {year} TheCocktailDB. All rights reserved.  Alaa Qrajah",
     "legal": {
       "privacy": "Privacy Policy",
       "terms": "Terms of Service"
@@ -39,6 +40,7 @@
   "home": {
     "title": "Welcome to TheCocktailDB",
     "description": "Discover and explore a world of delicious cocktail recipes",
+    "apply": "Go to the application form page",
     "features": {
       "discover": {
         "title": "Discover Recipes",
@@ -52,6 +54,24 @@
         "title": "Share & Connect",
         "description": "Share your favorite recipes and connect with other cocktail enthusiasts"
       }
-    }
-  }
+    },
+    "popularIngredients": "Popular Ingredients",
+    "latestDrinks": "Latest Drinks",
+    "popularDrinks": "Popular Drinks",
+    "randomIngredients": "Random Ingredients"
+  },
+  "filter": {
+    "category": "Category",
+    "glass": "Glass",
+    "ingredient": "Ingredient",
+    "alcohol": "Alcohol",
+    "select": "Select..."
+  },
+  "cardlist": {
+    "empty": "No items found."
+  },
+  "loading": "Loading...",
+  "Similar Drinks": "Similar Drinks",
+  "Ingredients": "Ingredients",
+  "Instructions": "Instructions"
 }

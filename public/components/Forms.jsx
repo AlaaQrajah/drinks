@@ -1,6 +1,7 @@
 import FormLabel from "./FormLabel";
 import FormInput from "./FormInput";
 import FormButton from "./FormButton";
+import "../../src/styles/form.css";
 const Forms = ({
   value,
   type,
@@ -12,7 +13,7 @@ const Forms = ({
   text,
 }) => {
   return (
-    <form>
+    <form className="form">
       <div className="form-label-input">
         <FormLabel htmlFor={htmlFor} className={classNameLabel} name={name} />
         <FormInput
@@ -23,6 +24,13 @@ const Forms = ({
         />
       </div>
       <FormButton text={text} />
+
+      <section class="bg-stars">
+        <span class="star"></span>
+        <span class="star"></span>
+        <span class="star"></span>
+        <span class="star"></span>
+      </section>
     </form>
   );
 };

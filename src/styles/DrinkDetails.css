@@ -1,0 +1,106 @@
+.drink-details {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 32px 16px;
+  background: var(--bg-overlay);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+.drink-details__card {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.drink-details__image-col {
+  flex: 1 1 320px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.drink-details__image {
+  width: 320px;
+  max-width: 100%;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  object-fit: cover;
+}
+
+.drink-details__info-col {
+  flex: 2 1 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.drink-details__title {
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
+  color: var(--color-accent);
+  margin-bottom: 8px;
+}
+
+.drink-details__meta {
+  display: flex;
+  gap: 16px;
+  color: var(--text-secondary);
+  font-size: var(--text-base);
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.drink-details__subtitle {
+  font-size: var(--text-xl);
+  color: var(--color-primary);
+  margin-top: 16px;
+  margin-bottom: 8px;
+  font-weight: var(--font-bold);
+}
+
+.drink-details__ingredients {
+  list-style: disc inside;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  padding-left: 16px;
+}
+
+.drink-details__instructions {
+  color: var(--text-secondary);
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  background: var(--bg-primary);
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.drink-details__similar {
+  margin-top: 48px;
+}
+
+@media (max-width: 900px) {
+  .drink-details__card {
+    flex-direction: column;
+    gap: 24px;
+  }
+  .drink-details__image {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .drink-details {
+    padding: 12px 2px;
+  }
+  .drink-details__title {
+    font-size: var(--text-2xl);
+  }
+  .drink-details__subtitle {
+    font-size: var(--text-lg);
+  }
+}

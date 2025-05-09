@@ -1,0 +1,20 @@
+.cardlist {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--spacing-lg);
+  margin: var(--spacing-xl) 0;
+}
+
+.cardlist__empty {
+  color: var(--text-secondary);
+  text-align: center;
+  padding: var(--spacing-xl);
+  font-size: var(--text-lg);
+}
+
+@media (max-width: 600px) {
+  .cardlist {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+  }
+}

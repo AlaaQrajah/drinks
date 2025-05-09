@@ -1,6 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "../components/pages/Home";
 import ErrorPage from "../../public/components/ErrorPage";
+import DrinkDetails from "../components/pages/DrinkDetails";
+import ApplicationForm from "../components/pages/ApplicationForm";
 
 // Import other pages when they're created
 const Router = () => {
@@ -11,6 +13,10 @@ const Router = () => {
       <Route path="/about" element={<div>About Page (Coming Soon)</div>} />
       <Route path="/recipes" element={<div>Recipes Page (Coming Soon)</div>} />
       <Route path="/contact" element={<div>Contact Page (Coming Soon)</div>} />
+      <Route path="/application" element={<ApplicationForm />} />
+
+      {/* Drink Details Route */}
+      <Route path="/drink/:id" element={<DrinkDetails />} />
 
       {/* Category Routes */}
       <Route path="/category">

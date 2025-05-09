@@ -1,0 +1,53 @@
+.loading-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: var(--bg-overlay);
+}
+
+.loading-spinner__circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Optional: Add a pulsing effect */
+.loading-spinner__circle::after {
+  content: "";
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+  opacity: 0.5;
+  animation: spin 1.5s linear infinite;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .loading-spinner__circle {
+    width: 36px;
+    height: 36px;
+  }
+
+  .loading-spinner__circle::after {
+    width: 36px;
+    height: 36px;
+  }
+}

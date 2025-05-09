@@ -1,17 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { FaSearch, FaBars } from "react-icons/fa";
 import "../../styles/Navbar.css";
 import Image from "../../../public/components/Image";
 import logo from "../../../public/assets/logo.png";
 import FormButton from "../../../public/components/FormButton";
 import FormInput from "../../../public/components/FormInput";
+import LoadingSpinner from "../../../public/components/LoadingSpinner";
+import api from "../../services/api-client";
 
 const Navbar = () => {
   const { t, i18n } = useTranslation();
+  const navigate = useNavigate();
   const [lang, setLang] = useState(i18n.language || "en");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [isSearching, setIsSearching] = useState(false);
+  const [searchResults, setSearchResults] = useState([]);
+  const [showResults, setShowResults] = useState(false);
 
   const toggleLanguage = () => {
     const newLang = lang === "en" ? "ar" : "en";
@@ -25,30 +32,57 @@ const Navbar = () => {
 
   const handleSearch = (e) => {
     setSearchQuery(e.target.value);
+    setShowResults(true);
   };
 
-  const handleSearchSubmit = (e) => {
-    e.preventDefault();
-    // Add your search submission logic here
-    console.log("Searching for:", searchQuery);
+  const searchDrinks = useCallback(async (query) => {
+    if (!query.trim()) {
+      setSearchResults([]);
+      return;
+    }
+
+    setIsSearching(true);
+    try {
+      const response = await api.get(`search.php?s=${query}`);
+      setSearchResults(response.data.drinks || []);
+    } catch (error) {
+      console.error("Error searching drinks:", error);
+      setSearchResults([]);
+    } finally {
+      setIsSearching(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    const debounceTimer = setTimeout(() => {
+      if (searchQuery.trim()) {
+        searchDrinks(searchQuery);
+      }
+    }, 300); // 300ms debounce
+
+    return () => clearTimeout(debounceTimer);
+  }, [searchQuery, searchDrinks]);
+
+  const handleDrinkClick = (drink) => {
+    setSearchQuery("");
+    setShowResults(false);
+    navigate(`/drink/${drink.idDrink}`);
   };
 
-  // Search icon component
-  const SearchIcon = ({ className }) => (
-    <svg
-      className={className}
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <circle cx="11" cy="11" r="8" />
-      <line x1="21" y1="21" x2="16.65" y2="16.65" />
-    </svg>
-  );
+  const handleClickOutside = (e) => {
+    if (!e.target.closest(".navbar__search")) {
+      setShowResults(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, []);
+
+  const handleHomeClick = () => {
+    navigate("/");
+  };
 
   return (
     <header className="header">
@@ -65,27 +99,52 @@ const Navbar = () => {
         </div>
 
         <div className="navbar__hamburger" onClick={toggleMenu}>
-          <span className={`hamburger-line ${isMenuOpen ? "open" : ""}`}></span>
-          <span className={`hamburger-line ${isMenuOpen ? "open" : ""}`}></span>
-          <span className={`hamburger-line ${isMenuOpen ? "open" : ""}`}></span>
+          <FaBars className="hamburger-icon" />
         </div>
 
         <div className={`navbar__content ${isMenuOpen ? "open" : ""}`}>
-          <form className="navbar__search" onSubmit={handleSearchSubmit}>
+          <div className="navbar__search">
             <FormInput
               placeholder={t("navbar.search")}
               type="text"
               className="input"
               value={searchQuery}
               onChange={handleSearch}
-              icon={SearchIcon}
+              icon={FaSearch}
             />
-            <button type="submit" className="search-button">
-              <SearchIcon className="search-button-icon" />
-            </button>
-          </form>
+            {isSearching && (
+              <div className="search-loading">
+                <LoadingSpinner />
+              </div>
+            )}
+            {showResults && searchResults.length > 0 && (
+              <div className="search-results">
+                {searchResults.map((drink) => (
+                  <div
+                    key={drink.idDrink}
+                    className="search-result-item"
+                    onClick={() => handleDrinkClick(drink)}
+                  >
+                    <img
+                      src={drink.strDrinkThumb}
+                      alt={drink.strDrink}
+                      className="search-result-image"
+                    />
+                    <span className="search-result-name">{drink.strDrink}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
 
           <div className="navbar__actions">
+            <FormButton
+              onClick={handleHomeClick}
+              text={t("navbar.home")}
+              className={`navbar__lang-btn${
+                window.location.pathname === "/" ? " active" : ""
+              }`}
+            />
             <FormButton
               onClick={toggleLanguage}
               text={lang === "en" ? "العربية" : "English"}

@@ -22,20 +22,13 @@
 }
 
 .footer__title {
-  display: flex;
-  align-items: center;
-  justify-content: start;
   font-size: var(--text-2xl);
-  gap: var(--spacing-md);
   margin-bottom: var(--spacing-md);
   background: var(--gradient-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-.footer__title img {
-  width: 30px;
-  height: 30px;
+  display: flex;
+  align-items: center;
 }
 
 .footer__subtitle {
@@ -44,10 +37,6 @@
   margin-bottom: var(--spacing-md);
   position: relative;
   padding-bottom: var(--spacing-sm);
-}
-
-.footer__subtitle span {
-  font-size: var(--text-lg);
 }
 
 .footer__subtitle::after {
@@ -64,6 +53,7 @@
   color: var(--text-secondary);
   line-height: var(--leading-relaxed);
   margin-bottom: var(--spacing-lg);
+  line-height: 2;
 }
 
 .footer__links {
@@ -76,33 +66,27 @@
   margin-bottom: var(--spacing-sm);
   display: flex;
   align-items: center;
+  gap: 15px;
 }
-
-.footer__arrow-icon {
-  margin-inline-end: 6px;
-  vertical-align: middle;
-  font-size: 1em;
-  color: var(--color-accent);
-  transition: color 0.3s;
+.footer__links li .footer__arrow-icon {
+  color: rgb(255, 111, 0);
+  animation: arrow-animation 1s linear infinite;
 }
-
-.footer__links li:hover .footer__arrow-icon {
-  animation: arrow-animation 0.5s;
-  color: var(--color-accent-light);
-}
-
+/* .footer__links li Link:hover {
+  transform: translateX(10px);
+  color: rgb(255, 111, 0);
+} */
 @keyframes arrow-animation {
   0% {
     transform: translateX(0);
   }
   50% {
-    transform: translateX(8px);
+    transform: translateX(5px);
   }
   100% {
     transform: translateX(0);
   }
 }
-
 .footer__links a {
   color: var(--text-secondary);
   text-decoration: none;
@@ -111,9 +95,9 @@
 }
 
 .footer__links a:hover {
-  color: var(--color-accent);
-  transform: translateX(8px);
-  font-size: 15px;
+  transform: translateX(10px);
+  color: rgb(255, 111, 0);
+  scale: 1.1;
   font-weight: bold;
 }
 
@@ -137,6 +121,7 @@
 .footer__social a:hover {
   background: var(--gradient-accent);
   transform: translateY(-3px);
+  font-weight: bold;
 }
 
 .footer__social-icon {
@@ -173,7 +158,8 @@
 }
 
 .footer__legal a:hover {
-  color: var(--text-primary);
+  color: rgb(255, 111, 0);
+  font-weight: bold;
 }
 
 /* Responsive adjustments */

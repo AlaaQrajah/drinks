@@ -49,8 +49,6 @@
 .navbar__search {
   position: relative;
   min-width: 300px;
-  display: flex;
-  align-items: center;
 }
 
 .search-button {
@@ -111,6 +109,98 @@
   transform: rotate(-45deg) translate(6px, -6px);
 }
 
+.hamburger-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--text-primary);
+  transition: var(--transition-normal);
+}
+
+.hamburger-icon:hover {
+  color: var(--color-accent);
+}
+
+.search-loading {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+}
+
+.search-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--bg-primary);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  margin-top: var(--spacing-xs);
+  max-height: 400px;
+  overflow-y: auto;
+  z-index: var(--z-dropdown);
+}
+
+.search-result-item {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-sm);
+  gap: var(--spacing-sm);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.search-result-item:hover {
+  background-color: var(--bg-overlay);
+}
+
+.search-result-image {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+}
+
+.search-result-name {
+  color: var(--text-primary);
+  font-size: var(--text-sm);
+}
+
+/* Scrollbar styles */
+.search-results::-webkit-scrollbar {
+  width: 6px;
+}
+
+.search-results::-webkit-scrollbar-track {
+  background: var(--bg-overlay);
+  border-radius: var(--radius-full);
+}
+
+.search-results::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: var(--radius-full);
+}
+
+.navbar__home-btn {
+  margin-right: var(--spacing-xxl);
+  margin-left: var(--spacing-xxl);
+}
+
+.navbar__home-btn.active,
+.navbar__home-btn:focus {
+  background: var(--gradient-accent);
+  color: #fff;
+  font-weight: bold;
+  outline: none;
+}
+
+.navbar__actions {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
 @media (max-width: 768px) {
   .navbar__hamburger {
     display: flex;
@@ -151,6 +241,10 @@
   .navbar__lang-btn {
     width: 100%;
     max-width: 200px;
+  }
+
+  .search-results {
+    max-height: 300px;
   }
 }
 
