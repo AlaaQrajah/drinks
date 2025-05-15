@@ -1,4 +1,3 @@
-import React from "react";
 import LayoutRoute from "./Layout/LayoutRoute";
 import "./styles/index.css";
 

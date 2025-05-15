@@ -1,0 +1,166 @@
+/* جعل الكارد في منتصف الشاشة عموديًا وأفقيًا */
+.application-form-outer {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--color-primary) 60%, #2d0b2d 100%);
+  padding: 0;
+}
+
+/* تحسين شكل صندوق مراجعة البيانات */
+.review-box {
+  background: rgba(40, 40, 40, 0.95);
+  border-radius: 16px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  padding: 1.5rem 2rem;
+  margin: 0 auto 1.5rem auto;
+  color: #fff;
+  font-size: 1.15rem;
+  font-family: var(--font-family-primary);
+  font-weight: 500;
+  line-height: 2;
+  letter-spacing: 0.01em;
+  max-width: 95%;
+  min-width: 220px;
+  border: 1.5px solid #333;
+}
+
+.review-box b {
+  color: var(--color-accent);
+  font-weight: bold;
+  margin-right: 6px;
+}
+
+/* تحسين شكل كارد الفورم في جميع الخطوات */
+.application-form-card {
+  background: rgba(26, 26, 26, 0.98);
+  border-radius: 24px;
+  box-shadow: 0 8px 40px 0 rgba(0, 0, 0, 0.22);
+  border: 1.5px solid #333;
+  padding: 2.5rem 2rem 2rem 2rem;
+  max-width: 480px;
+  min-width: 320px;
+  width: 100%;
+  margin: 0 auto;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  align-items: stretch;
+}
+
+.form-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+}
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.form-error {
+  color: #ff4757;
+  font-size: 0.95em;
+  margin-top: 2px;
+  min-height: 18px;
+  text-align: start;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 1.2rem;
+}
+
+.form-select.error,
+.input.error {
+  border: 2px solid #ff4757 !important;
+  background: rgba(255, 71, 87, 0.08) !important;
+}
+
+.form-drink-result {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.5rem 0;
+}
+
+.form-review {
+  background: var(--bg-overlay);
+  border-radius: 12px;
+  padding: 1rem;
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+/* تحسين شكل القوائم المنسدلة */
+.form-select {
+  background: #222;
+  color: #fff;
+  border-radius: 2rem;
+  border: 1.5px solid #444;
+  padding: 0.7rem 1.2rem;
+  font-size: 1.1rem;
+  font-family: var(--font-family-primary);
+  font-weight: 500;
+  transition: border 0.2s, box-shadow 0.2s;
+  outline: none;
+  margin-bottom: 0.2rem;
+}
+.form-select:focus {
+  border: 2px solid var(--color-accent);
+  box-shadow: 0 0 0 2px var(--color-accent-light);
+}
+
+/* تحسين شكل الأزرار */
+.btn-donate {
+  min-width: 120px;
+  min-height: 44px;
+  font-size: 1.1rem;
+  border-radius: 12px;
+  margin: 0 0.5rem;
+  box-shadow: 0 2px 16px 0 rgba(255, 111, 0, 0.15);
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.btn-donate:hover {
+  background-position: right top;
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 4px 24px 0 rgba(255, 111, 0, 0.25);
+}
+
+@media (max-width: 600px) {
+  .application-form-card {
+    padding: 1.2rem 0.5rem;
+    max-width: 98vw;
+    min-width: unset;
+  }
+  .form-row {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .review-box {
+    padding: 1rem 0.5rem;
+  }
+}
+
+/* دعم RTL */
+html[dir="rtl"] .application-form-card {
+  direction: rtl;
+  text-align: right;
+}
+

@@ -7,6 +7,7 @@ const FormInput = ({
   className,
   onChange,
   icon: Icon,
+  name,
 }) => {
   return (
     <div className="form-input-wrapper">
@@ -14,6 +15,7 @@ const FormInput = ({
         {Icon && <Icon className="input-icon" />}
         <input
           type={type}
+          name={name}
           placeholder={placeholder}
           className={`form-input ${className} ${Icon ? "with-icon" : ""}`}
           value={value}

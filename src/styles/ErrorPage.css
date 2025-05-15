@@ -29,20 +29,20 @@
 
 .errorpage-title {
   font-size: 72px;
-  color: #3b82f6;
+  color: #EC6D1C;
   font-weight: 800;
   margin: 0;
 }
 
 .errorpage-subtitle {
   font-size: 24px;
-  color: #111827;
+  color: #ffb300;
   margin-top: 10px;
 }
 
 .errorpage-description {
   font-size: 16px;
-  color: #6b7280;
+  color: #ffffff;
   margin-top: 10px;
   line-height: 1.6;
 }
@@ -51,7 +51,7 @@
   display: inline-block;
   margin-top: 20px;
   padding: 12px 24px;
-  background-color: #3b82f6;
+  background-color: #EC6D1C;
   color: white;
   text-decoration: none;
   border-radius: 8px;
@@ -60,5 +60,5 @@
 }
 
 .errorpage-button:hover {
-  background-color: #2563eb;
+  background-color: #ec6c1c70;
 }

@@ -1,0 +1,214 @@
+.register-form-outer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #230312 60%, #2d0b2d 100%);
+  padding: 0;
+}
+
+.register-home-btn {
+  margin-bottom: 24px;
+  align-self: flex-start;
+  background: linear-gradient(90deg, #ff6b6b, #ffb347);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 24px;
+  font-size: 1rem;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  margin-left: 0;
+}
+.register-home-btn:hover {
+  background: linear-gradient(90deg, #ffb347, #ff6b6b);
+  transform: translateY(-2px) scale(1.04);
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 420px;
+  min-width: 320px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem 2rem 2rem;
+  border-radius: 24px;
+  position: relative;
+  background: rgba(26, 26, 26, 0.98);
+  color: #fff;
+  border: 1.5px solid #333;
+  box-shadow: 0 8px 40px 0 rgba(0, 0, 0, 0.22);
+  font-family: var(--font-family-primary);
+}
+
+.register-title {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 34px;
+  color: #00bfff;
+  margin-bottom: 0.5rem;
+}
+
+.register-title::before,
+.register-title::after {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  left: 0px;
+  background-color: #00bfff;
+}
+
+.register-title::after {
+  width: 22px;
+  height: 22px;
+  animation: pulse 1s linear infinite;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(0.9);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+.register-message,
+.register-signin {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.register-signin {
+  text-align: center;
+}
+
+.register-signin a {
+  color: #00bfff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.register-signin a:hover {
+  text-decoration: underline royalblue;
+  color: #0099cc;
+}
+
+.register-flex {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+}
+
+.register-form label {
+  position: relative;
+  width: 100%;
+}
+
+.register-form label .input {
+  background-color: #333;
+  color: #fff;
+  width: 100%;
+  padding: 22px 5px 7px 14px;
+  outline: 0;
+  border: 1.5px solid rgba(105, 105, 105, 0.397);
+  border-radius: 12px;
+  font-size: 1.08rem;
+  margin-bottom: 0;
+  transition: border-color 0.2s;
+}
+
+.register-form label .input.error {
+  border-color: #ff4757;
+}
+
+.register-form label .input + span {
+  color: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  left: 14px;
+  top: 0px;
+  font-size: 1em;
+  cursor: text;
+  transition: 0.3s ease;
+}
+
+.register-form label .input:placeholder-shown + span {
+  top: 15px;
+  font-size: 1em;
+}
+
+.register-form label .input:focus + span,
+.register-form label .input:not(:placeholder-shown) + span {
+  color: #00bfff;
+  top: 0px;
+  font-size: 0.8em;
+  font-weight: 600;
+}
+
+.register-error {
+  color: #ff4757;
+  font-size: 0.95em;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  min-height: 18px;
+}
+
+.register-success {
+  color: #3cb371;
+  background: rgba(60, 179, 113, 0.08);
+  border-radius: 8px;
+  padding: 8px 0;
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.submit,
+.register-form button[type="submit"] {
+  border: none;
+  outline: none;
+  padding: 12px;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 18px;
+  background: linear-gradient(90deg, #ff6b6b, #ffb347);
+  font-weight: 700;
+  margin-top: 10px;
+  transition: background 0.2s, transform 0.2s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.submit:hover,
+.register-form button[type="submit"]:hover {
+  background: linear-gradient(90deg, #ffb347, #ff6b6b);
+  transform: translateY(-2px) scale(1.04);
+}
+
+@media (max-width: 600px) {
+  .register-form {
+    padding: 1.2rem 0.5rem;
+    max-width: 98vw;
+    min-width: unset;
+  }
+  .register-flex {
+    flex-direction: column;
+    gap: 0;
+  }
+  .register-home-btn {
+    width: 100%;
+    margin-bottom: 18px;
+  }
+}

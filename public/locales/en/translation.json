@@ -73,5 +73,57 @@
   "loading": "Loading...",
   "Similar Drinks": "Similar Drinks",
   "Ingredients": "Ingredients",
-  "Instructions": "Instructions"
+  "Instructions": "Instructions",
+  "register": {
+    "title": "Register",
+    "message": "Signup now and get full access to our app.",
+    "firstname": "Firstname",
+    "lastname": "Lastname",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm password",
+    "submit": "Submit",
+    "signinText": "Already have an account?",
+    "signinLink": "Signin",
+    "success": "Registration successful!",
+    "errors": {
+      "firstname": "Firstname is required.",
+      "lastname": "Lastname is required.",
+      "email": "Email is required.",
+      "emailInvalid": "Please enter a valid email address.",
+      "password": "Password is required.",
+      "passwordShort": "Password must be at least 6 characters.",
+      "confirmPassword": "Please confirm your password.",
+      "passwordMatch": "Passwords do not match."
+    }
+  },
+  "form": {
+    "personalInfo": "Personal Information",
+    "name": "First Name",
+    "surname": "Last Name",
+    "phone": "Phone Number",
+    "email": "Email",
+    "next": "Next",
+    "back": "Back",
+    "drinkPreferences": "Drink Preferences",
+    "category": "Category",
+    "alcoholic": "Alcoholic/Non-Alcoholic",
+    "glass": "Glass Type",
+    "ingredients": "Ingredients",
+    "review": "Review Data",
+    "confirm": "Confirm",
+    "result": "Search Result",
+    "noResult": "No matching results found.",
+    "errors": {
+      "name": "First name is required.",
+      "surname": "Last name is required.",
+      "phone": "Phone number is required.",
+      "email": "Email is required.",
+      "emailInvalid": "Please enter a valid email address.",
+      "category": "Please select a category.",
+      "alcoholic": "Please select drink type.",
+      "glass": "Please select a glass type.",
+      "ingredients": "Please select at least one ingredient."
+    }
+  }
 }

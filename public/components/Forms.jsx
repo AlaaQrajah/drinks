@@ -25,11 +25,11 @@ const Forms = ({
       </div>
       <FormButton text={text} />
 
-      <section class="bg-stars">
-        <span class="star"></span>
-        <span class="star"></span>
-        <span class="star"></span>
-        <span class="star"></span>
+      <section className="bg-stars">
+        <span className="star"></span>
+        <span className="star"></span>
+        <span className="star"></span>
+        <span className="star"></span>
       </section>
     </form>
   );

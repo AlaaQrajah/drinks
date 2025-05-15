@@ -1,5 +1,3 @@
-import React from "react";
-
 const FormLabel = ({ name, className, htmlFor }) => {
   return (
     <label htmlFor={htmlFor} className={className}>
@@ -9,4 +7,3 @@ const FormLabel = ({ name, className, htmlFor }) => {
 };
 
 export default FormLabel;
- 

@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import "../../styles/Card.css";
 import LoadingSpinner from "../../../public/components/LoadingSpinner";
+import Image from "../../../public/components/Image";
 
 const Card = ({ item, type, onClick }) => {
   const { t } = useTranslation();
@@ -51,20 +52,19 @@ const Card = ({ item, type, onClick }) => {
       onClick={handleCardClick}
       tabIndex={0}
       role="button"
-      style={{ backgroundImage: `url(${image})` }}
     >
+      <Image
+        src={image}
+        alt={name}
+        className="card__image-bg"
+        onLoad={() => setImageLoading(false)}
+        style={{ display: imageLoading ? "none" : "block" }}
+      />
       {imageLoading && (
         <div className="card__loading">
           <LoadingSpinner />
         </div>
       )}
-      <img
-        src={image}
-        alt={name}
-        className="card__image"
-        onLoad={() => setImageLoading(false)}
-        style={{ display: "none" }}
-      />
       <div className="card__overlay">
         <h3 className="card__title">{name}</h3>
         {category && (
