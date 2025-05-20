@@ -1,0 +1,39 @@
+.category-page {
+  padding: var(--spacing-xl) 0; /* Add vertical padding */
+  color: var(--text-primary); /* Default text color */
+  text-align: center; /* Center align content */
+}
+
+.category-page__title {
+  font-size: var(--text-3xl); /* Large title font size */
+  font-weight: var(--font-bold); /* Bold font weight */
+  color: var(--color-accent); /* Accent color for title */
+  margin-bottom: var(--spacing-xl); /* Space below the title */
+  text-transform: capitalize; /* Capitalize the first letter of each word in the title */
+}
+
+.category-page__empty {
+  color: var(--text-secondary); /* Secondary text color */
+  font-size: var(--text-lg); /* Larger font size for empty message */
+  padding: var(--spacing-xl); /* Padding around the empty message */
+  border: 1px dashed var(--bg-overlay); /* Dashed border for visual separation */
+  border-radius: var(--radius-md); /* Rounded corners */
+  max-width: 400px; /* Limit width */
+  margin: 0 auto; /* Center the block */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .category-page__title {
+    font-size: var(--text-2xl); /* Smaller title on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .category-page__empty {
+    font-size: var(
+      --text-base
+    ); /* Smaller font size for empty message on very small screens */
+    padding: var(--spacing-md); /* Less padding */
+  }
+}

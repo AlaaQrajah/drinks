@@ -3,7 +3,8 @@ import Home from "../components/pages/Home";
 import ErrorPage from "../../public/components/ErrorPage";
 import DrinkDetails from "../components/pages/DrinkDetails";
 import ApplicationForm from "../components/pages/ApplicationForm";
-
+import PrivacyPage from "../components/pages/PrivacyPage"; // Import PrivacyPage
+import TermsPage from "../components/pages/TermsPage"; // Import TermsPage
 // Import other pages when they're created
 const Router = () => {
   return (
@@ -17,7 +18,13 @@ const Router = () => {
 
       {/* Drink Details Route */}
       <Route path="/drink/:id" element={<DrinkDetails />} />
-
+      {/* Legal Routes */}
+      <Route
+        path="/privacy"
+        element={<PrivacyPage />}
+        /* Use PrivacyPage */
+      />
+      <Route path="/terms" element={<TermsPage />} /* Use TermsPage */ />
       {/* Category Routes */}
       <Route path="/category">
         <Route

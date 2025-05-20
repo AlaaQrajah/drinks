@@ -1,0 +1,84 @@
+.contact-page {
+  padding: var(--spacing-xl) 0;
+  color: var(--text-primary);
+  text-align: center; /* Center align content for a simple layout */
+}
+
+.contact-page__title {
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
+  color: var(--color-accent); /* Use accent color for title */
+  margin-bottom: var(--spacing-lg);
+}
+
+.contact-page__description {
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-xl); /* More space before the form */
+  max-width: 800px; /* Limit width for readability */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-form {
+  max-width: 600px; /* Limit form width */
+  margin: 0 auto var(--spacing-xl) auto; /* Center form and add space below */
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md); /* Space between form groups */
+  padding: var(--spacing-lg);
+  background: var(--bg-overlay-dark); /* Add a background to the form area */
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--bg-overlay);
+}
+
+/* Style for the textarea */
+.contact-form__textarea {
+  width: 100%;
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+  background: var(--bg-overlay);
+  border: 2px solid var(--bg-overlay);
+  border-radius: var(--radius-md); /* Slightly smaller radius for textarea */
+  transition: var(--transition-normal);
+  outline: none;
+  resize: vertical; /* Allow vertical resizing */
+  min-height: 120px; /* Minimum height for the textarea */
+}
+
+.contact-form__textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.contact-form__textarea:focus {
+  border-color: var(--color-accent); /* Highlight on focus */
+}
+
+.contact-info {
+  margin-top: var(--spacing-xl);
+  color: var(--text-secondary);
+  font-size: var(--text-base);
+}
+
+.contact-info p {
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Add responsive adjustments if needed */
+@media (max-width: 768px) {
+  .contact-page__title {
+    font-size: var(--text-2xl);
+  }
+
+  .contact-page__description {
+    font-size: var(--text-sm);
+    padding: 0 var(--spacing-md);
+  }
+
+  .contact-form {
+    padding: var(--spacing-md);
+    gap: var(--spacing-sm);
+  }
+}

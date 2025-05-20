@@ -9,6 +9,7 @@ import FormButton from "../../../public/components/FormButton";
 import FormInput from "../../../public/components/FormInput";
 import LoadingSpinner from "../../../public/components/LoadingSpinner";
 import api from "../../services/api-client";
+import { useQuery } from "@tanstack/react-query";
 
 const Navbar = () => {
   const { t, i18n } = useTranslation();
@@ -16,8 +17,6 @@ const Navbar = () => {
   const [lang, setLang] = useState(i18n.language || "en");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
-  const [isSearching, setIsSearching] = useState(false);
-  const [searchResults, setSearchResults] = useState([]);
   const [showResults, setShowResults] = useState(false);
 
   const toggleLanguage = () => {
@@ -35,33 +34,18 @@ const Navbar = () => {
     setShowResults(true);
   };
 
-  const searchDrinks = useCallback(async (query) => {
-    if (!query.trim()) {
-      setSearchResults([]);
-      return;
-    }
+  const fetchSearchResults = async (query) => {
+    if (!query.trim()) return [];
+    const response = await api.get(`search.php?s=${query}`);
+    return response.data.drinks || [];
+  };
 
-    setIsSearching(true);
-    try {
-      const response = await api.get(`search.php?s=${query}`);
-      setSearchResults(response.data.drinks || []);
-    } catch (error) {
-      console.error("Error searching drinks:", error);
-      setSearchResults([]);
-    } finally {
-      setIsSearching(false);
-    }
-  }, []);
-
-  useEffect(() => {
-    const debounceTimer = setTimeout(() => {
-      if (searchQuery.trim()) {
-        searchDrinks(searchQuery);
-      }
-    }, 300); // 300ms debounce
-
-    return () => clearTimeout(debounceTimer);
-  }, [searchQuery, searchDrinks]);
+  const { data: searchResults = [], isFetching: isSearching } = useQuery({
+    queryKey: ["searchDrinks", searchQuery],
+    queryFn: () => fetchSearchResults(searchQuery),
+    enabled: !!searchQuery.trim(),
+    keepPreviousData: true,
+  });
 
   const handleDrinkClick = (drink) => {
     setSearchQuery("");

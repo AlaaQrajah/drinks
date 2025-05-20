@@ -6,48 +6,31 @@ import LoadingSpinner from "../../../public/components/LoadingSpinner";
 import ErrorPage from "../../../public/components/ErrorPage";
 import CardList from "./CardList";
 import "../../styles/DrinkDetails.css";
+import { useQuery } from "@tanstack/react-query";
+import useDrinkDetails from "../../hooks/useDrinkDetails";
+
+const fetchSimilarDrinks = async (category, id) => {
+  if (!category) return [];
+  const res = await api.get(`filter.php?c=${encodeURIComponent(category)}`);
+  return res.data.drinks
+    ? res.data.drinks.filter((d) => d.idDrink !== id).slice(0, 6)
+    : [];
+};
 
 const DrinkDetails = () => {
   const { id } = useParams();
   const { t } = useTranslation();
-  const [drink, setDrink] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
-  const [similarDrinks, setSimilarDrinks] = useState([]);
 
-  useEffect(() => {
-    setLoading(true);
-    setError(false);
-    api
-      .get(`lookup.php?i=${id}`)
-      .then((res) => {
-        if (res.data.drinks && res.data.drinks.length > 0) {
-          setDrink(res.data.drinks[0]);
-        } else {
-          setError(true);
-        }
-      })
-      .catch(() => setError(true))
-      .finally(() => setLoading(false));
-  }, [id]);
+  const { data: drink, isLoading, isError } = useDrinkDetails(id);
 
-  useEffect(() => {
-    if (drink && drink.strCategory) {
-      api
-        .get(`filter.php?c=${encodeURIComponent(drink.strCategory)}`)
-        .then((res) => {
-          if (res.data.drinks) {
-            setSimilarDrinks(
-              res.data.drinks.filter((d) => d.idDrink !== id).slice(0, 6)
-            );
-          }
-        })
-        .catch(() => setSimilarDrinks([]));
-    }
-  }, [drink, id]);
+  const { data: similarDrinks = [] } = useQuery({
+    queryKey: ["similarDrinks", drink?.strCategory, id],
+    queryFn: () => fetchSimilarDrinks(drink?.strCategory, id),
+    enabled: !!drink?.strCategory,
+  });
 
-  if (loading) return <LoadingSpinner />;
-  if (error || !drink) return <ErrorPage />;
+  if (isLoading) return <LoadingSpinner />;
+  if (isError || !drink) return <ErrorPage />;
 
   // Gather ingredients and measures
   const ingredients = [];

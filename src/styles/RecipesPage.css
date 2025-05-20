@@ -1,0 +1,43 @@
+.recipes-page {
+  padding: var(--spacing-xl) 0; /* Add vertical padding */
+  color: var(--text-primary); /* Default text color */
+  text-align: center; /* Center align content */
+}
+
+.recipes-page__title {
+  font-size: var(--text-3xl); /* Large title font size */
+  font-weight: var(--font-bold); /* Bold font weight */
+  color: var(--color-accent); /* Accent color for title */
+  margin-bottom: var(--spacing-lg); /* Space below the title */
+}
+
+.recipes-page__description {
+  font-size: var(--text-base); /* Base font size for description */
+  line-height: var(--leading-relaxed); /* Relaxed line height */
+  color: var(--text-secondary); /* Secondary text color */
+  margin-bottom: var(--spacing-xl); /* More space before content */
+  max-width: 800px; /* Limit width for readability */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.recipes-page__content {
+  /* Add styling for the main content area */
+  padding: var(--spacing-md);
+  background: var(--bg-overlay-dark);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--bg-overlay);
+  /* Add flexbox or grid for layout of recipes if needed */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .recipes-page__title {
+    font-size: var(--text-2xl); /* Smaller title on smaller screens */
+  }
+
+  .recipes-page__description {
+    font-size: var(--text-sm); /* Smaller description font size */
+    padding: 0 var(--spacing-md); /* Add horizontal padding */
+  }
+}

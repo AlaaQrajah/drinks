@@ -7,46 +7,38 @@ import "../../styles/Home.css";
 import ErrorPage from "../../../public/components/ErrorPage";
 import LoadingSpinner from "../../../public/components/LoadingSpinner";
 import FormButton from "../../../public/components/FormButton";
-function getRandomItems(arr, n) {
-  if (!Array.isArray(arr)) return [];
-  const shuffled = arr.slice().sort(() => 0.5 - Math.random());
-  return shuffled.slice(0, n);
-}
+import useIngredients from "../../hooks/useIngredients";
+import useLatestDrinks from "../../hooks/useLatestDrinks";
+import usePopularDrinks from "../../hooks/usePopularDrinks";
+import { getRandomItems } from "../../utils/array";
 
 const Home = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const [popularIngredients, setPopularIngredients] = useState([]);
-  const [randomIngredients, setRandomIngredients] = useState([]);
-  const [latestDrinks, setLatestDrinks] = useState([]);
-  const [popularDrinks, setPopularDrinks] = useState([]);
-  const [error, setError] = useState(false);
-  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    setLoading(true);
-    setError(false);
-    // Fetch all ingredients
-    api
-      .get("list.php?i=list")
-      .then((res) => {
-        const allIngredients = res.data.drinks || [];
-        setPopularIngredients(allIngredients.slice(0, 8));
-        setRandomIngredients(getRandomItems(allIngredients, 8));
-      })
-      .catch(() => setError(true));
-    // Fetch latest drinks (by first letter 'a')
-    api
-      .get("search.php?f=a")
-      .then((res) => setLatestDrinks(res.data.drinks || []))
-      .catch(() => setError(true));
-    // Fetch popular drinks (Cocktail category)
-    api
-      .get("filter.php?c=Cocktail")
-      .then((res) => setPopularDrinks(res.data.drinks || []))
-      .catch(() => setError(true))
-      .finally(() => setLoading(false));
-  }, []);
+  const {
+    data: allIngredients = [],
+    isLoading: loadingIngredients,
+    isError: errorIngredients,
+  } = useIngredients();
+
+  const {
+    data: latestDrinks = [],
+    isLoading: loadingLatest,
+    isError: errorLatest,
+  } = useLatestDrinks();
+
+  const {
+    data: popularDrinks = [],
+    isLoading: loadingPopular,
+    isError: errorPopular,
+  } = usePopularDrinks();
+
+  const popularIngredients = allIngredients.slice(0, 8);
+  const randomIngredients = getRandomItems(allIngredients, 8);
+
+  const loading = loadingIngredients || loadingLatest || loadingPopular;
+  const error = errorIngredients || errorLatest || errorPopular;
 
   if (error) return <ErrorPage />;
   if (loading) return <LoadingSpinner />;

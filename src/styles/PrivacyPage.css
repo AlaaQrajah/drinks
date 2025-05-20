@@ -1,0 +1,37 @@
+.privacy-page {
+  padding: var(--spacing-xl) 0; /* Add vertical padding */
+  color: var(--text-primary); /* Default text color */
+  text-align: center; /* Center align content */
+}
+
+.privacy-page__title {
+  font-size: var(--text-3xl); /* Large title font size */
+  font-weight: var(--font-bold); /* Bold font weight */
+  color: var(--color-accent); /* Accent color for title */
+  margin-bottom: var(--spacing-lg); /* Space below the title */
+}
+
+.privacy-page__content {
+  /* Add styling for the main content area */
+  padding: var(--spacing-md);
+  background: var(--bg-overlay-dark);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--bg-overlay);
+  max-width: 800px; /* Limit width for readability */
+  margin: 0 auto; /* Center the block */
+  text-align: left; /* Align text to the left within the content block */
+  line-height: var(--leading-relaxed); /* Relaxed line height for readability */
+  font-size: var(--text-base);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .privacy-page__title {
+    font-size: var(--text-2xl); /* Smaller title on smaller screens */
+  }
+
+  .privacy-page__content {
+    padding: var(--spacing-sm); /* Less padding on smaller screens */
+    font-size: var(--text-sm);
+  }
+}

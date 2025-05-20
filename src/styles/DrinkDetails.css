@@ -2,9 +2,14 @@
   max-width: 900px;
   margin: 40px auto;
   padding: 32px 16px;
-  background: var(--bg-overlay);
+  background: linear-gradient(
+    135deg,
+    rgba(35, 3, 18, 0.95) 60%,
+    rgba(45, 11, 45, 0.95) 100%
+  ); /* Subtle gradient */
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
+  border: 1.5px solid #333; /* Added border */
 }
 
 .drink-details__card {
@@ -39,46 +44,81 @@
 .drink-details__title {
   font-size: var(--text-3xl);
   font-weight: var(--font-bold);
-  color: var(--color-accent);
+  background: var(--gradient-primary); /* Apply primary gradient */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin-bottom: 8px;
 }
 
 .drink-details__meta {
   display: flex;
-  gap: 16px;
+  gap: 24px; /* Increased gap */
   color: var(--text-secondary);
   font-size: var(--text-base);
   margin-bottom: 16px;
   flex-wrap: wrap;
 }
 
+.drink-details__meta span {
+  position: relative;
+}
+
+.drink-details__meta span:not(:last-child)::after {
+  content: "•"; /* Added separator */
+  position: absolute;
+  right: -15px; /* Adjust as needed for spacing */
+  color: var(--color-accent);
+}
+
 .drink-details__subtitle {
   font-size: var(--text-xl);
-  color: var(--color-primary);
+  color: var(--color-accent); /* Changed subtitle color */
   margin-top: 16px;
   margin-bottom: 8px;
   font-weight: var(--font-bold);
 }
 
 .drink-details__ingredients {
-  list-style: disc inside;
-  color: var(--text-primary);
+  list-style: none; /* Removed default list style */
+  padding: 0; /* Removed default padding */
   margin-bottom: 16px;
-  padding-left: 16px;
+  background: rgba(255, 255, 255, 0.08); /* Added background */
+  border-radius: var(--radius-md); /* Added border radius */
+  padding: 16px; /* Added padding */
+}
+
+.drink-details__ingredients li {
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  line-height: var(--leading-relaxed);
+  position: relative;
+  padding-left: 20px; /* Space for custom bullet */
+}
+
+.drink-details__ingredients li::before {
+  content: "\2022"; /* Custom bullet point (Unicode bullet) */
+  color: var(--color-accent); /* Bullet color */
+  font-weight: bold;
+  display: inline-block;
+  width: 1em; /* Space for bullet */
+  margin-left: -1em; /* Negative margin to pull bullet into padding */
 }
 
 .drink-details__instructions {
   color: var(--text-secondary);
   font-size: var(--text-base);
   line-height: var(--leading-relaxed);
-  background: var(--bg-primary);
-  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.05); /* Updated background */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Added border */
+  padding: 16px; /* Increased padding */
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);
 }
 
 .drink-details__similar {
   margin-top: 48px;
+  padding-top: 24px; /* Added padding */
+  border-top: 1px solid var(--bg-overlay); /* Added separator line */
 }
 
 @media (max-width: 900px) {
@@ -102,5 +142,11 @@
   }
   .drink-details__subtitle {
     font-size: var(--text-lg);
+  }
+  .drink-details__meta {
+    gap: 16px; /* Adjusted gap for smaller screens */
+  }
+  .drink-details__meta span:not(:last-child)::after {
+    right: -10px; /* Adjusted separator position */
   }
 }
