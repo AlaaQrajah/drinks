@@ -15,6 +15,10 @@ const RegisterForm = () => {
 
   return (
     <div className="register-form-outer">
+      <div className="background">
+        <div className="shape"></div>
+        <div className="shape"></div>
+      </div>
       <button className="register-home-btn" onClick={() => navigate("/")}>
         {t("navbar.home")}
       </button>

@@ -15,7 +15,8 @@ import "../../styles/ApplicationForm.css";
 import useFormOptions from "../../hooks/useFormOptions";
 import useApplicationForm from "../../hooks/useApplicationForm"; // Import the new form hook
 import useFetchSimilarDrinks from "../../hooks/useFetchSimilarDrinks"; // Import the new similar drinks hook
-
+import ErrorPage from "../../../public/components/ErrorPage";
+import Background from "../../../public/assets/BackgroundImage/components/Background";
 // مكون الفورم الرئيسي لتقديم الطلب
 const ApplicationForm = () => {
   // استخدام الترجمة
@@ -57,10 +58,15 @@ const ApplicationForm = () => {
 
   // الخطوة الأولى: معلومات شخصية
   const renderStep1 = () => (
-    <form className="form-card application-form-card" onSubmit={handleNext}>
+    <form className="form-card application-form-card " onSubmit={handleNext}>
+      {/* <div className="background">
+        <div className="shape"></div>
+        <div className="shape"></div>
+      </div> */}
+      <Background background="background1" shape="shape1" />
       {/* عنوان الخطوة */}
       <h2 className="form-title">{t("form.personalInfo")}</h2>
-      <div className="form-row">
+      <div className="form-row ">
         <div className="form-group">
           <FormInput
             type="text"
@@ -117,6 +123,11 @@ const ApplicationForm = () => {
   // الخطوة الثانية: تفضيلات المشروب
   const renderStep2 = () => (
     <form className="form-card application-form-card" onSubmit={handleNext}>
+      {/* <div className="background">
+        <div className="shape"></div>
+        <div className="shape"></div>
+      </div> */}
+      <Background background="background2" shape="shape2" />
       <h2 className="form-title">{t("form.drinkPreferences")}</h2>
       <div className="form-row">
         <div className="form-group">
@@ -188,7 +199,13 @@ const ApplicationForm = () => {
   // الخطوة الثالثة: مراجعة البيانات
   const renderStep3 = () => (
     <div className="form-card application-form-card">
+      {/* <div className="background">
+        <div className="shape"></div>
+        <div className="shape"></div>
+      </div> */}
+      <Background background="background3" shape="shape3" />
       <h2 className="form-title">{t("form.review")}</h2>
+
       <div className="form-review review-box">
         <div>
           <b>{t("form.name")}</b>: {form.name}
@@ -231,6 +248,11 @@ const ApplicationForm = () => {
   // الخطوة الرابعة: عرض النتيجة في كارد منسق والمشروبات المشابهة
   const renderStep4 = () => (
     <div className="form-card application-form-card">
+      {/* <div className="background">
+        <div className="shape"></div>
+        <div className="shape"></div>
+      </div> */}
+      <Background background="background4" shape="shape4" />
       <h2 className="form-title">{t("form.result")}</h2>
       {isFetchingDrink ? (
         <LoadingSpinner />
@@ -264,7 +286,12 @@ const ApplicationForm = () => {
   // Renamed from loadingOptions to maintain clarity with form fetching state
   if (loadingOptions) return <LoadingSpinner />;
   // Also handle errorOptions if needed, although the hook already returns isError
-  if (errorOptions) return <div>Error loading options</div>; // You might want a more specific error component
+  if (errorOptions)
+    return (
+      <div>
+        <ErrorPage />
+      </div>
+    ); // You might want a more specific error component
 
   // عرض الخطوة الحالية
   return (
