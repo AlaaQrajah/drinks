@@ -1,31 +1,19 @@
-.form-input-wrapper {
+.form-select-wrapper {
   position: relative;
   width: 100%;
   margin-bottom: var(--spacing-md, 1rem);
 }
 
-.form-input-label {
-  display: block;
-  margin-bottom: var(--spacing-xs, 0.25rem);
-  font-size: var(--text-sm, 0.875rem);
-  font-weight: 500;
-  color: var(--text-secondary, #cbd5e1);
-}
-
-.required-mark {
-  color: var(--color-error, #ff4757);
-  margin-left: 2px;
-}
-
-.input-container {
+.select-container {
   position: relative;
   display: flex;
   align-items: center;
 }
 
-.form-input {
+.form-select {
   width: 100%;
   padding: var(--spacing-sm, 0.5rem) var(--spacing-md, 1rem);
+  padding-right: 2.5rem;
   font-size: var(--text-sm, 0.875rem);
   color: var(--text-primary, #ffffff);
   background: var(--bg-overlay, rgba(255, 255, 255, 0.05));
@@ -33,29 +21,27 @@
   border-radius: var(--radius-full, 0.5rem);
   transition: all 0.2s ease;
   outline: none;
+  appearance: none;
+  cursor: pointer;
   backdrop-filter: blur(5px);
 }
 
-.form-input.with-icon {
+.form-select.with-icon {
   padding-left: 2.8rem;
 }
 
-.form-input::placeholder {
-  color: var(--text-muted, #94a3b8);
-}
-
-.form-input:focus {
+.form-select:focus {
   border-color: var(--color-accent, #EC6D1C);
   background: var(--bg-overlay, rgba(255, 255, 255, 0.05));
   box-shadow: 0 0 0 3px rgba(236, 109, 28, 0.2);
   transform: translateY(-1px);
 }
 
-.form-input:hover:not(:focus):not(:disabled) {
+.form-select:hover:not(:focus):not(:disabled) {
   border-color: var(--color-accent-light, rgba(236, 109, 28, 0.5));
 }
 
-.input-icon {
+.select-icon {
   position: absolute;
   left: var(--spacing-md, 1rem);
   color: var(--text-muted, #94a3b8);
@@ -65,22 +51,33 @@
   transition: all 0.2s ease;
 }
 
-.form-input:focus + .input-icon,
-.form-input:not(:placeholder-shown) + .input-icon {
+.select-arrow {
+  position: absolute;
+  right: var(--spacing-md, 1rem);
+  color: var(--text-muted, #94a3b8);
+  width: 1.2rem;
+  height: 1.2rem;
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+
+.form-select:focus + .select-icon,
+.form-select:focus ~ .select-arrow {
   color: var(--color-accent, #EC6D1C);
 }
 
 /* Error states */
-.form-input-wrapper.has-error .form-input {
+.form-select-wrapper.has-error .form-select {
   border-color: var(--color-error, #ff4757);
   background-color: rgba(255, 71, 87, 0.05);
 }
 
-.form-input-wrapper.has-error .input-icon {
+.form-select-wrapper.has-error .select-icon,
+.form-select-wrapper.has-error .select-arrow {
   color: var(--color-error, #ff4757);
 }
 
-.input-error-message {
+.select-error-message {
   color: var(--color-error, #ff4757);
   font-size: 0.75rem;
   margin-top: 0.25rem;
@@ -88,26 +85,17 @@
 }
 
 /* Disabled state */
-.form-input:disabled {
+.form-select:disabled {
   opacity: 0.6;
   cursor: not-allowed;
   background: var(--bg-overlay-dark, rgba(0, 0, 0, 0.1));
 }
 
-/* Autofill styles */
-.form-input:-webkit-autofill,
-.form-input:-webkit-autofill:hover,
-.form-input:-webkit-autofill:focus {
-  -webkit-text-fill-color: var(--text-primary, #ffffff);
-  transition: background-color 5000s ease-in-out 0s;
-  box-shadow: 0 0 0px 1000px var(--bg-overlay, rgba(255, 255, 255, 0.05)) inset;
-}
-
-/* Different input types */
-.form-input[type="date"],
-.form-input[type="time"],
-.form-input[type="datetime-local"] {
-  padding-right: 0.5rem;
+/* Option styling */
+.form-select option {
+  background-color: var(--bg-secondary, #2d1646);
+  color: var(--text-primary, #ffffff);
+  padding: 8px;
 }
 
 /* Focus animation */
@@ -117,6 +105,6 @@
   100% { box-shadow: 0 0 0 0 rgba(236, 109, 28, 0); }
 }
 
-.form-input:focus {
+.form-select:focus {
   animation: focusPulse 1.5s infinite;
 }

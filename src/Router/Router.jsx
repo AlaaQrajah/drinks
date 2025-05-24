@@ -3,54 +3,41 @@ import Home from "../components/pages/Home";
 import ErrorPage from "../../public/components/ErrorPage";
 import DrinkDetails from "../components/pages/DrinkDetails";
 import ApplicationForm from "../components/pages/ApplicationForm";
-import PrivacyPage from "../components/pages/PrivacyPage"; // Import PrivacyPage
-import TermsPage from "../components/pages/TermsPage"; // Import TermsPage
-// Import other pages when they're created
+import PrivacyPage from "../components/pages/PrivacyPage";
+import TermsPage from "../components/pages/TermsPage";
+// import AboutPage from "../components/pages/AboutPage";
+import AboutPage from "../components/pages/AboutPage";
+import RecipesPage from "../components/pages/RecipesPage";
+import ContactPage from "../components/pages/ContactPage";
+import CategoryPage from "../components/pages/CategoryPage";
+
 const Router = () => {
   return (
     <Routes>
       {/* Public Routes */}
       <Route path="/" element={<Home />} />
-      <Route path="/about" element={<div>About Page (Coming Soon)</div>} />
-      <Route path="/recipes" element={<div>Recipes Page (Coming Soon)</div>} />
-      <Route path="/contact" element={<div>Contact Page (Coming Soon)</div>} />
+      <Route path="/about" element={<AboutPage />} />
+      <Route path="/recipes" element={<RecipesPage />} />
+      <Route path="/contact" element={<ContactPage />} />
       <Route path="/application" element={<ApplicationForm />} />
 
       {/* Drink Details Route */}
       <Route path="/drink/:id" element={<DrinkDetails />} />
-      {/* Legal Routes */}
-      <Route
-        path="/privacy"
-        element={<PrivacyPage />}
-        /* Use PrivacyPage */
-      />
-      <Route path="/terms" element={<TermsPage />} /* Use TermsPage */ />
-      {/* Category Routes */}
-      <Route path="/category">
-        <Route
-          path="popular"
-          element={<div>Popular Drinks (Coming Soon)</div>}
-        />
-        <Route
-          path="latest"
-          element={<div>Latest Recipes (Coming Soon)</div>}
-        />
-        <Route
-          path="non-alcoholic"
-          element={<div>Non-Alcoholic Drinks (Coming Soon)</div>}
-        />
-        <Route path="random" element={<div>Random Drink (Coming Soon)</div>} />
-      </Route>
 
       {/* Legal Routes */}
-      <Route
-        path="/privacy"
-        element={<div>Privacy Policy (Coming Soon)</div>}
-      />
-      <Route
-        path="/terms"
-        element={<div>Terms of Service (Coming Soon)</div>}
-      />
+      <Route path="/privacy" element={<PrivacyPage />} />
+      <Route path="/terms" element={<TermsPage />} />
+
+      {/* Category Routes */}
+      <Route path="/category">
+        <Route path="popular" element={<CategoryPage type="popular" />} />
+        <Route path="latest" element={<CategoryPage type="latest" />} />
+        <Route
+          path="non-alcoholic"
+          element={<CategoryPage type="non-alcoholic" />}
+        />
+        <Route path="random" element={<CategoryPage type="random" />} />
+      </Route>
 
       {/* 404 Error Page */}
       <Route path="*" element={<ErrorPage />} />

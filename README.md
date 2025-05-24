@@ -67,6 +67,19 @@ TheCocktailDB/
 - [Axios](https://axios-http.com/)
 - [TheCocktailDB API](https://www.thecocktaildb.com/api.php)
 
+## Data Fetching
+
+The application fetches cocktail and ingredient data from TheCocktailDB API using custom React hooks powered by `@tanstack/react-query`.
+
+- **`usePopularDrinks`**: Fetches a list of drinks to display as "popular".
+- **`useLatestDrinks`**: Fetches a list of drinks to simulate "latest" recipes.
+- **`useIngredients`**: Fetches a list of available ingredients.
+- **`useDrinkDetails`**: Fetches detailed information for a specific drink by ID.
+- **`useFetchFilteredDrink`**: Used in the application form to fetch a recommended drink based on user preferences (ingredients or category).
+- **`useFetchSimilarDrinks`**: Fetches drinks from the same category as a given drink, excluding the given drink.
+
+These hooks manage the API calls, caching, loading states, and error handling, providing a smooth data fetching experience throughout the application. The `src/services/api-client.js` file contains the Axios instance configured to interact with the API base URL.
+
 ## Internationalization (i18n)
 
 - All UI and form texts are fully translatable.
