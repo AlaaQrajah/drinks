@@ -1,0 +1,230 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0f1624;
+  font-family: "Poppins", sans-serif;
+}
+
+.background {
+  width: 430px;
+  height: 520px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+}
+
+.background .shape {
+  height: 200px;
+  width: 200px;
+  position: absolute;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.shape:first-child {
+  background: linear-gradient(135deg, #4f46e5, #60a5fa);
+  left: -80px;
+  top: -80px;
+  animation: float 6s ease-in-out infinite;
+}
+
+.shape:last-child {
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  right: -30px;
+  bottom: -80px;
+  animation: float 8s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+form {
+  height: 520px;
+  width: 400px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 50px 35px;
+  color: white;
+}
+
+form h3 {
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+label {
+  display: block;
+  margin-top: 20px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+input {
+  width: 100%;
+  height: 50px;
+  margin-top: 8px;
+  padding: 0 15px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.07);
+  font-size: 14px;
+  color: #fff;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+input::placeholder {
+  color: #d1d1d1;
+}
+
+input:focus {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #4f46e5;
+  box-shadow: 0 0 8px #4f46e5;
+  animation: focusGlow 0.5s ease;
+}
+
+@keyframes focusGlow {
+  0% {
+    box-shadow: 0 0 0px transparent;
+  }
+  100% {
+    box-shadow: 0 0 8px #4f46e5;
+  }
+}
+
+button {
+  margin-top: 40px;
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 6px;
+  background-color: #4f46e5;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  transition: background 0.3s ease;
+}
+
+button:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+  z-index: -1;
+}
+
+button:hover {
+  background-color: #3b38d1;
+}
+
+button:hover:after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.social {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.social div {
+  width: 48%;
+  padding: 10px;
+  text-align: center;
+  border-radius: 30px;
+  cursor: pointer;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.social .go {
+  background: linear-gradient(to right, #4285f4, #34a853, #fbbc05, #ea4335);
+  background-size: 300% 100%;
+}
+
+.social .go:hover {
+  background-position: 100% 0;
+  box-shadow: 0 0 10px rgba(66, 133, 244, 0.5);
+}
+
+.social .fb {
+  background: linear-gradient(to right, #3b5998, #4267b2);
+}
+
+.social .fb:hover {
+  box-shadow: 0 0 10px rgba(59, 89, 152, 0.5);
+}
+
+@media only screen and (max-width: 600px) {
+  form {
+    width: 90%;
+    padding: 30px 20px;
+  }
+
+  .social {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .social div {
+    width: 100%;
+  }
+}
+
+@media (hover: none) {
+  button:active,
+  .social div:active {
+    transform: scale(0.95);
+  }
+}
+input {
+  border: 2px solid transparent; /* مهم جداً لتفعيل التغيير لاحقًا */
+  transition: all 0.3s ease;
+}
+input:focus {
+  outline: none;
+  border: 2px solid #3b82f6; /* أزرق فاتح */
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.8);
+  background-color: rgba(255, 255, 255, 0.07);
+  transition: all 0.3s ease;
+}
+input:focus {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #4f46e5;
+  box-shadow: 0 0 8px #4f46e5;
+  animation: focusGlow 0.5s ease;
+}

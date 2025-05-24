@@ -6,6 +6,7 @@
   justify-content: center;
   background: linear-gradient(135deg, #230312 60%, #2d0b2d 100%);
   padding: 0;
+  text-align: center;
 }
 
 .register-home-btn {
@@ -164,6 +165,9 @@
   margin-top: 2px;
   margin-bottom: 2px;
   min-height: 18px;
+  text-align: center;
+  width: 100%;
+  display: block;
 }
 
 .register-success {
