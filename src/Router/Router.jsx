@@ -10,6 +10,7 @@ import AboutPage from "../components/pages/AboutPage";
 import RecipesPage from "../components/pages/RecipesPage";
 import ContactPage from "../components/pages/ContactPage";
 import CategoryPage from "../components/pages/CategoryPage";
+import LoginHero from "../components/pages/LoginHero";
 
 const Router = () => {
   return (
@@ -27,7 +28,7 @@ const Router = () => {
       {/* Legal Routes */}
       <Route path="/privacy" element={<PrivacyPage />} />
       <Route path="/terms" element={<TermsPage />} />
-
+      <Route path="/login" element={<LoginHero />} />
       {/* Category Routes */}
       <Route path="/category">
         <Route path="popular" element={<CategoryPage type="popular" />} />

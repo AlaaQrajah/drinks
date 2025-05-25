@@ -228,3 +228,7 @@ input:focus {
   box-shadow: 0 0 8px #4f46e5;
   animation: focusGlow 0.5s ease;
 }
+.login-container {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}

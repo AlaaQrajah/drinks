@@ -7,7 +7,7 @@ import "../styles/Layout.css";
 
 const Layout = ({ children }) => {
   const location = useLocation();
-  
+
   // Scroll to top when route changes
   useEffect(() => {
     window.scrollTo(0, 0);

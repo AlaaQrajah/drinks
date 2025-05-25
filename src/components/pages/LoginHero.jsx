@@ -1,30 +1,98 @@
-import React from "react";
+import React, { useState, useCallback } from "react";
 import "../../styles/LoginHero.css";
+import FormInput from "../../../public/components/FormInput";
+import FormButton from "../../../public/components/FormButton";
+import { useTranslation } from "react-i18next";
 
 const LoginHero = () => {
+  const { t } = useTranslation();
+
+  const [formData, setFormData] = useState({
+    emailOrPhone: "",
+    password: "",
+  });
+
+  // State to hold validation errors
+  const [errors, setErrors] = useState({});
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+    // Clear error for the field as user types
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      [name]: undefined,
+    }));
+  };
+
+  // Validation logic
+  const validateForm = useCallback(() => {
+    const newErrors = {};
+    if (!formData.emailOrPhone.trim()) {
+      newErrors.emailOrPhone = t("login.errors.emailOrUsernameRequired");
+    }
+    if (!formData.password.trim()) {
+      newErrors.password = t("login.errors.passwordRequired");
+    }
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  }, [formData, t]); // Depend on formData and t
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Validate the form before attempting submission
+    if (validateForm()) {
+      // Add your login logic here
+      console.log("Login form submitted:", formData);
+      // For now, just log the data. Implement actual login later.
+    }
+  };
+
   return (
     <div className="login-container">
+      {/* Keep the background shapes */}
       <div className="background">
         <div className="shape"></div>
         <div className="shape"></div>
       </div>
 
-      <form>
-        <h3>Login Hero</h3>
+      {/* Add noValidate to prevent default browser validation */}
+      <form onSubmit={handleSubmit} noValidate>
+        <h3>{t("login.title")}</h3>
 
-        <label htmlFor="username">Username</label>
-        <input
+        {/* Use FormInput component for Username/Email */}
+        {/* Pass the specific error message for emailOrPhone */}
+        <FormInput
+          label={t("login.emailOrUsername")}
           type="text"
-          placeholder="Email or Phone"
-          id="username"
+          name="emailOrPhone"
+          placeholder=" "
+          value={formData.emailOrPhone}
+          onChange={handleChange}
+          error={errors.emailOrPhone} // Pass error message here
           required
         />
 
-        <label htmlFor="password">Password</label>
-        <input type="password" placeholder="Password" id="password" required />
+        {/* Use FormInput component for Password */}
+        {/* Pass the specific error message for password */}
+        <FormInput
+          label={t("register.password")} // Reusing register.password for consistency, or add a new login.password key and use it here
+          type="password"
+          name="password"
+          placeholder=" "
+          value={formData.password}
+          onChange={handleChange}
+          error={errors.password} // Pass error message here
+          required
+        />
 
-        <button type="submit">Log In</button>
+        {/* Use FormButton component for the submit button */}
+        <FormButton type="submit" text={t("login.submit")} />
 
+        {/* Keep the social login section */}
         <div className="social">
           <div className="go">
             <i className="fab fa-google"></i> Google

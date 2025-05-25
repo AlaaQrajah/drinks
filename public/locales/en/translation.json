@@ -2,7 +2,10 @@
   "navbar": {
     "logo": "TheCocktailDB",
     "search": "Search...",
-    "home": "Home"
+    "home": "Home",
+
+    "login": "Login",
+    "logout": "Logout"
   },
   "errorpage": {
     "title": "Opps!",
@@ -124,6 +127,15 @@
       "alcoholic": "Please select drink type.",
       "glass": "Please select a glass type.",
       "ingredients": "Please select at least one ingredient."
+    }
+  },
+  "login": {
+    "title": "Login",
+    "emailOrUsername": "Email or Username",
+    "submit": "Log In",
+    "errors": {
+      "emailOrUsernameRequired": "Email or username is required.",
+      "passwordRequired": "Password is required."
     }
   }
 }

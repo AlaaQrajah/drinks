@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
-import { FaSearch, FaBars } from "react-icons/fa";
+import { FaSearch, FaBars, FaUser, FaSignOutAlt } from "react-icons/fa"; // Import FaUser and FaSignOutAlt
 import "../../styles/Navbar.css";
 import Image from "../../../public/components/Image";
 import logo from "../../../public/assets/logo.png";
@@ -18,6 +18,9 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [showResults, setShowResults] = useState(false);
+
+  // Placeholder for authentication status
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Replace with actual auth check
 
   const toggleLanguage = () => {
     const newLang = lang === "en" ? "ar" : "en";
@@ -68,6 +71,19 @@ const Navbar = () => {
     navigate("/");
   };
 
+  const handleAuthClick = () => {
+    if (isLoggedIn) {
+      // Handle logout logic
+      console.log("Logging out...");
+      setIsLoggedIn(false); // Simulate logout
+      // Redirect to home or login page after logout
+      navigate("/");
+    } else {
+      // Navigate to login page
+      navigate("/login");
+    }
+  };
+
   return (
     <header className="header">
       <nav className="navbar">
@@ -87,6 +103,28 @@ const Navbar = () => {
         </div>
 
         <div className={`navbar__content ${isMenuOpen ? "open" : ""}`}>
+          {/* Moved search to be after actions for better mobile stacking if needed */}
+          <div className="navbar__actions">
+            <FormButton
+              onClick={handleHomeClick}
+              text={t("navbar.home")}
+              className={`navbar__lang-btn${
+                window.location.pathname === "/" ? " active" : ""
+              }`}
+            />
+            <FormButton
+              onClick={toggleLanguage}
+              text={lang === "en" ? "العربية" : "English"}
+              className="navbar__lang-btn"
+            />
+            {/* Login/Logout Button */}
+            <FormButton
+              onClick={handleAuthClick}
+              text={isLoggedIn ? t("navbar.logout") : t("navbar.login")} // Use translation keys
+              icon={isLoggedIn ? <FaSignOutAlt /> : <FaUser />} // Use appropriate icon
+              className="navbar__auth-btn"
+            />
+          </div>
           <div className="navbar__search">
             <FormInput
               placeholder={t("navbar.search")}
@@ -119,21 +157,6 @@ const Navbar = () => {
                 ))}
               </div>
             )}
-          </div>
-
-          <div className="navbar__actions">
-            <FormButton
-              onClick={handleHomeClick}
-              text={t("navbar.home")}
-              className={`navbar__lang-btn${
-                window.location.pathname === "/" ? " active" : ""
-              }`}
-            />
-            <FormButton
-              onClick={toggleLanguage}
-              text={lang === "en" ? "العربية" : "English"}
-              className="navbar__lang-btn"
-            />
           </div>
         </div>
       </nav>

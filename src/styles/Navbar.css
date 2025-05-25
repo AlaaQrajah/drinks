@@ -49,6 +49,7 @@
 .navbar__search {
   position: relative;
   min-width: 300px;
+  margin-top: 20px;
 }
 
 .search-button {
@@ -199,6 +200,8 @@
 .navbar__actions {
   display: flex;
   gap: var(--spacing-sm);
+  justify-content: center;
+  align-items: center;
 }
 
 @media (max-width: 768px) {
@@ -267,4 +270,9 @@
     width: 16px;
     height: 16px;
   }
+}
+.navbar__content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
