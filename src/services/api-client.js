@@ -5,8 +5,8 @@ const apiClient = axios.create({
   timeout: 10000, // 10 seconds timeout
   headers: {
     "Content-Type": "application/json",
-    "Accept": "application/json",
-  }
+    Accept: "application/json",
+  },
 });
 
 // Request interceptor
@@ -37,7 +37,7 @@ apiClient.interceptors.response.use(
       // Something else happened while setting up the request
       console.error("Request Error:", error.message);
     }
-    
+
     return Promise.reject(error);
   }
 );

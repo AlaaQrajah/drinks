@@ -17,6 +17,16 @@ import useApplicationForm from "../../hooks/useApplicationForm"; // Import the n
 import useFetchSimilarDrinks from "../../hooks/useFetchSimilarDrinks"; // Import the new similar drinks hook
 import ErrorPage from "../../../public/components/ErrorPage";
 import Background from "../../../public/assets/BackgroundImage/components/Background";
+import {
+  FaUser,
+  FaPhone,
+  FaEnvelope,
+  FaWineGlassAlt,
+  FaCocktail,
+  FaBars,
+  FaSeedling,
+} from "react-icons/fa"; // Import icons
+
 // مكون الفورم الرئيسي لتقديم الطلب
 const ApplicationForm = () => {
   // استخدام الترجمة
@@ -75,6 +85,7 @@ const ApplicationForm = () => {
             value={form.name}
             onChange={handleChange}
             className={errors.name ? "input error" : "input"}
+            icon={FaUser} // Add icon
           />
           {errors.name && <div className="form-error">{errors.name}</div>}
         </div>
@@ -86,6 +97,7 @@ const ApplicationForm = () => {
             value={form.surname}
             onChange={handleChange}
             className={errors.surname ? "input error" : "input"}
+            icon={FaUser} // Add icon
           />
           {errors.surname && <div className="form-error">{errors.surname}</div>}
         </div>
@@ -99,6 +111,7 @@ const ApplicationForm = () => {
             value={form.phone}
             onChange={handleChange}
             className={errors.phone ? "input error" : "input"}
+            icon={FaPhone} // Add icon
           />
           {errors.phone && <div className="form-error">{errors.phone}</div>}
         </div>
@@ -110,6 +123,7 @@ const ApplicationForm = () => {
             value={form.email}
             onChange={handleChange}
             className={errors.email ? "input error" : "input"}
+            icon={FaEnvelope} // Add icon
           />
           {errors.email && <div className="form-error">{errors.email}</div>}
         </div>
@@ -138,6 +152,7 @@ const ApplicationForm = () => {
             options={options.categories}
             placeholder={t("form.category")}
             className={errors.category ? "form-select error" : "form-select"}
+            icon={FaBars} // Add icon
           />
           {errors.category && (
             <div className="form-error">{errors.category}</div>
@@ -151,6 +166,7 @@ const ApplicationForm = () => {
             options={options.alcoholics}
             placeholder={t("form.alcoholic")}
             className={errors.alcoholic ? "form-select error" : "form-select"}
+            icon={FaCocktail} // Add icon
           />
           {errors.alcoholic && (
             <div className="form-error">{errors.alcoholic}</div>
@@ -166,6 +182,7 @@ const ApplicationForm = () => {
             options={options.glasses}
             placeholder={t("form.glass")}
             className={errors.glass ? "form-select error" : "form-select"}
+            icon={FaWineGlassAlt} // Add icon
           />
           {errors.glass && <div className="form-error">{errors.glass}</div>}
         </div>
@@ -177,6 +194,7 @@ const ApplicationForm = () => {
             options={options.ingredients}
             className={errors.ingredients ? "form-select error" : "form-select"}
             multiple
+            icon={FaSeedling} // Add icon
           />
           {errors.ingredients && (
             <div className="form-error">{errors.ingredients}</div>

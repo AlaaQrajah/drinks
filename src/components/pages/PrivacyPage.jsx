@@ -17,11 +17,22 @@ const PrivacyPage = () => {
           {/* Placeholder content for Privacy Policy */}
           <p>
             {t(
-              "privacyPage.comingSoon",
-              "Privacy Policy content is coming soon. Please check back later for updates."
+              "privacyPage.placeholder1",
+              "Your privacy is important to us. This policy outlines how we collect, use, and protect your personal information when you use our website."
             )}
           </p>
-          {/* In a real application, you would have detailed privacy policy text here */}
+          <p>
+            {t(
+              "privacyPage.placeholder2",
+              "We are committed to being transparent about our practices and providing you with control over your data."
+            )}
+          </p>
+          <p>
+            {t(
+              "privacyPage.placeholder3",
+              "Please note that this is a simplified placeholder policy. A comprehensive privacy policy will be added later."
+            )}
+          </p>
         </div>
       </Container>
     </div>

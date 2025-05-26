@@ -5,6 +5,7 @@ import FormButton from "../../../public/components/FormButton";
 import { useTranslation } from "react-i18next";
 import { useAuth } from "../Context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { FaUser, FaLock } from "react-icons/fa";
 
 const LoginHero = () => {
   const { t } = useTranslation();
@@ -85,6 +86,7 @@ const LoginHero = () => {
           onChange={handleChange}
           error={errors.emailOrPhone} // Pass error message here
           required
+          icon={FaUser}
         />
 
         {/* Use FormInput component for Password */}
@@ -98,6 +100,7 @@ const LoginHero = () => {
           onChange={handleChange}
           error={errors.password} // Pass error message here
           required
+          icon={FaLock}
         />
 
         {/* Use FormButton component for the submit button */}
