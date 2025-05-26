@@ -63,3 +63,48 @@
   margin-top: 3rem;
   margin-bottom: 3rem;
 }
+
+.popular-drinks-swiper {
+  padding-bottom: 40px; /* Add padding for pagination dots */
+}
+
+/* Style for pagination dots */
+.popular-drinks-swiper .swiper-pagination-bullet {
+  background: var(--text-secondary); /* Color for inactive dots */
+  opacity: 0.6;
+  transition: opacity 0.2s ease, background-color 0.2s ease;
+}
+
+.popular-drinks-swiper .swiper-pagination-bullet-active {
+  background: var(--color-accent); /* Color for active dot */
+  opacity: 1;
+}
+
+/* Style for navigation arrows */
+.popular-drinks-swiper .swiper-button-next,
+.popular-drinks-swiper .swiper-button-prev {
+  color: var(--color-accent); /* Color of the arrows */
+  width: 40px;
+  height: 40px;
+  margin-top: -20px; /* Adjust vertical alignment */
+  opacity: 1 !important; /* Ensure full opacity */
+  transition: opacity 0.2s ease;
+  z-index: 10 !important; /* Ensure high z-index */
+  pointer-events: auto !important; /* Ensure they are interactive */
+  display: flex !important; /* Ensure they are displayed */
+  align-items: center;
+  justify-content: center;
+}
+
+.popular-drinks-swiper .swiper-button-next:hover,
+.popular-drinks-swiper .swiper-button-prev:hover {
+  opacity: 1;
+}
+
+/* Hide navigation arrows on small screens if needed */
+@media (max-width: 768px) {
+  .popular-drinks-swiper .swiper-button-next,
+  .popular-drinks-swiper .swiper-button-prev {
+    display: none !important; /* Ensure they are hidden on small screens */
+  }
+}

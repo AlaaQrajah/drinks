@@ -3,7 +3,7 @@ import Layout from "./Layout/Layout";
 import "./styles/index.css";
 import Router from "./Router/Router";
 import LoginHero from "./components/pages/LoginHero";
-import { AuthProvider } from "./components/context/AuthContext";
+import { AuthProvider } from "./components/Context/AuthContext";
 
 function App() {
   return (

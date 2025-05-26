@@ -58,7 +58,7 @@ const LoginHero = () => {
         // Do not store password in local storage
       };
       login(userData); // Call login from AuthContext
-      navigate("/"); // Navigate to home page after login
+      navigate("/application"); // Navigate to application page after login
     }
   };
 
