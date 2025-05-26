@@ -11,10 +11,12 @@ import useIngredients from "../../hooks/useIngredients";
 import useLatestDrinks from "../../hooks/useLatestDrinks";
 import usePopularDrinks from "../../hooks/usePopularDrinks";
 import { getRandomItems } from "../../utils/array";
+import { useAuth } from "../Context/AuthContext";
 
 const Home = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const { user } = useAuth();
 
   const {
     data: allIngredients = [],
@@ -48,11 +50,13 @@ const Home = () => {
       <section className="home__hero">
         <h1 className="home__title">{t("home.title")}</h1>
         <p className="home__description">{t("home.description")}</p>
-        <FormButton
-          text={t("home.apply")}
-          className="home__apply-btn"
-          onClick={() => navigate("/application")}
-        />
+        {!user && (
+          <FormButton
+            text={t("home.apply")}
+            className="home__apply-btn"
+            onClick={() => navigate("/application")}
+          />
+        )}
       </section>
 
       <section className="home__section">
@@ -60,20 +64,28 @@ const Home = () => {
         <CardList items={popularDrinks} type="drink" />
       </section>
 
-      <section className="home__section">
-        <h2 className="home__section-title">{t("home.popularIngredients")}</h2>
-        <CardList items={popularIngredients} type="ingredient" />
-      </section>
+      {user && (
+        <>
+          <section className="home__section">
+            <h2 className="home__section-title">
+              {t("home.popularIngredients")}
+            </h2>
+            <CardList items={popularIngredients} type="ingredient" />
+          </section>
 
-      <section className="home__section">
-        <h2 className="home__section-title">{t("home.latestDrinks")}</h2>
-        <CardList items={latestDrinks} type="drink" />
-      </section>
+          <section className="home__section">
+            <h2 className="home__section-title">{t("home.latestDrinks")}</h2>
+            <CardList items={latestDrinks} type="drink" />
+          </section>
 
-      <section className="home__section">
-        <h2 className="home__section-title">{t("home.randomIngredients")}</h2>
-        <CardList items={randomIngredients} type="ingredient" />
-      </section>
+          <section className="home__section">
+            <h2 className="home__section-title">
+              {t("home.randomIngredients")}
+            </h2>
+            <CardList items={randomIngredients} type="ingredient" />
+          </section>
+        </>
+      )}
     </div>
   );
 };

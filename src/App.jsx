@@ -3,14 +3,17 @@ import Layout from "./Layout/Layout";
 import "./styles/index.css";
 import Router from "./Router/Router";
 import LoginHero from "./components/pages/LoginHero";
+import { AuthProvider } from "./components/context/AuthContext";
 
 function App() {
   return (
-    <LayoutRoute>
-      <Layout>
-        <Router />
-      </Layout>
-    </LayoutRoute>
+    <AuthProvider>
+      <LayoutRoute>
+        <Layout>
+          <Router />
+        </Layout>
+      </LayoutRoute>
+    </AuthProvider>
     /* <LoginHero />*/
   );
 }

@@ -3,9 +3,13 @@ import "../../styles/LoginHero.css";
 import FormInput from "../../../public/components/FormInput";
 import FormButton from "../../../public/components/FormButton";
 import { useTranslation } from "react-i18next";
+import { useAuth } from "../Context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const LoginHero = () => {
   const { t } = useTranslation();
+  const { login } = useAuth();
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     emailOrPhone: "",
@@ -39,7 +43,7 @@ const LoginHero = () => {
     }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
-  }, [formData, t]); // Depend on formData and t
+  }, [formData, t]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -47,7 +51,14 @@ const LoginHero = () => {
     if (validateForm()) {
       // Add your login logic here
       console.log("Login form submitted:", formData);
-      // For now, just log the data. Implement actual login later.
+      // For now, simulate a successful login
+      const userData = {
+        // Replace with actual user data from backend
+        emailOrPhone: formData.emailOrPhone,
+        // Do not store password in local storage
+      };
+      login(userData); // Call login from AuthContext
+      navigate("/"); // Navigate to home page after login
     }
   };
 

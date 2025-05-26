@@ -11,6 +11,7 @@ import RecipesPage from "../components/pages/RecipesPage";
 import ContactPage from "../components/pages/ContactPage";
 import CategoryPage from "../components/pages/CategoryPage";
 import LoginHero from "../components/pages/LoginHero";
+import ProtectedRoute from "../../public/components/ProtectedRoute";
 
 const Router = () => {
   return (
@@ -20,10 +21,24 @@ const Router = () => {
       <Route path="/about" element={<AboutPage />} />
       <Route path="/recipes" element={<RecipesPage />} />
       <Route path="/contact" element={<ContactPage />} />
-      <Route path="/application" element={<ApplicationForm />} />
 
-      {/* Drink Details Route */}
-      <Route path="/drink/:id" element={<DrinkDetails />} />
+      {/* Protected Routes */}
+      <Route
+        path="/application"
+        element={
+          <ProtectedRoute>
+            <ApplicationForm />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/drink/:id"
+        element={
+          <ProtectedRoute>
+            <DrinkDetails />
+          </ProtectedRoute>
+        }
+      />
 
       {/* Legal Routes */}
       <Route path="/privacy" element={<PrivacyPage />} />

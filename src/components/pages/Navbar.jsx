@@ -10,17 +10,19 @@ import FormInput from "../../../public/components/FormInput";
 import LoadingSpinner from "../../../public/components/LoadingSpinner";
 import api from "../../services/api-client";
 import { useQuery } from "@tanstack/react-query";
+import { useAuth } from "../Context/AuthContext"; // Changed casing
 
 const Navbar = () => {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
+  const { user, logout } = useAuth(); // Use useAuth hook to get user and logout
   const [lang, setLang] = useState(i18n.language || "en");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [showResults, setShowResults] = useState(false);
 
   // Placeholder for authentication status
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // Replace with actual auth check
+  // const [isLoggedIn, setIsLoggedIn] = useState(false); // Remove this state
 
   const toggleLanguage = () => {
     const newLang = lang === "en" ? "ar" : "en";
@@ -72,10 +74,11 @@ const Navbar = () => {
   };
 
   const handleAuthClick = () => {
-    if (isLoggedIn) {
+    if (user) {
+      // Check if user is logged in using the context
       // Handle logout logic
       console.log("Logging out...");
-      setIsLoggedIn(false); // Simulate logout
+      logout(); // Call the logout function from the context
       // Redirect to home or login page after logout
       navigate("/");
     } else {
@@ -120,8 +123,8 @@ const Navbar = () => {
             {/* Login/Logout Button */}
             <FormButton
               onClick={handleAuthClick}
-              text={isLoggedIn ? t("navbar.logout") : t("navbar.login")} // Use translation keys
-              icon={isLoggedIn ? <FaSignOutAlt /> : <FaUser />} // Use appropriate icon
+              text={user ? t("navbar.logout") : t("navbar.login")} // Use user from context
+              icon={user ? <FaSignOutAlt /> : <FaUser />} // Use appropriate icon based on user
               className="navbar__auth-btn"
             />
           </div>
