@@ -1,5 +1,5 @@
-import React from "react";
-import { useTranslation } from "react-i18next";
+import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -12,7 +12,7 @@ class ErrorBoundary extends React.Component {
   }
 
   componentDidCatch(error, errorInfo) {
-    console.error("Error caught by ErrorBoundary:", error, errorInfo);
+    console.error('Error caught by ErrorBoundary:', error, errorInfo);
   }
 
   render() {
@@ -30,16 +30,16 @@ const ErrorFallback = ({ error }) => {
 
   return (
     <div className="error-boundary">
-      <h2>{t("errors.somethingWentWrong", "Something went wrong")}</h2>
-      <p>{t("errors.tryAgainLater", "Please try again later")}</p>
+      <h2>{t('errors.somethingWentWrong', 'Something went wrong')}</h2>
+      <p>{t('errors.tryAgainLater', 'Please try again later')}</p>
       <button
         onClick={() => window.location.reload()}
         className="error-boundary__button"
       >
-        {t("errors.refresh", "Refresh page")}
+        {t('errors.refresh', 'Refresh page')}
       </button>
       <details>
-        <summary>{t("errors.details", "Error details")}</summary>
+        <summary>{t('errors.details', 'Error details')}</summary>
         <pre>{error?.toString()}</pre>
       </details>
     </div>

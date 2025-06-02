@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 const Image = ({
   src,
   alt,
-  className = "",
+  className = '',
   onLoad,
   style = {},
   placeholderSrc,
@@ -26,16 +26,16 @@ const Image = ({
   return (
     <img
       src={hasError && fallbackSrc ? fallbackSrc : src}
-      alt={alt || "Image"}
-      className={`${className} ${!isLoaded && placeholderSrc ? "loading" : ""}`}
+      alt={alt || 'Image'}
+      className={`${className} ${!isLoaded && placeholderSrc ? 'loading' : ''}`}
       onLoad={handleLoad}
       onError={handleError}
       style={{
-        transition: "opacity 0.3s ease",
+        transition: 'opacity 0.3s ease',
         opacity: isLoaded ? 1 : placeholderSrc ? 0 : 1,
         ...style,
       }}
-      loading={lazy ? "lazy" : "eager"}
+      loading={lazy ? 'lazy' : 'eager'}
       onClick={onClick}
     />
   );

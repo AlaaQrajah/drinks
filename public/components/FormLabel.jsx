@@ -1,9 +1,9 @@
-import React from "react";
-import { FiInfo } from "react-icons/fi";
+import React from 'react';
+import { FiInfo } from 'react-icons/fi';
 
 const FormLabel = ({
   name,
-  className = "",
+  className = '',
   htmlFor,
   required = false,
   tooltip,

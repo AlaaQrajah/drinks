@@ -1,23 +1,23 @@
 /* Base Styles */
-@import "./variables.css";
-@import "./reset.css";
-@import "./typography.css";
+@import './variables.css';
+@import './reset.css';
+@import './typography.css';
 
 /* Components */
-@import "./Navbar.css";
-@import "./Footer.css";
-@import "./FormInput.css";
-@import "./FormButton.css";
-@import "./ErrorPage.css";
-@import "./Container.css";
+@import './Navbar.css';
+@import './Footer.css';
+@import './FormInput.css';
+@import './FormButton.css';
+@import './ErrorPage.css';
+@import './Container.css';
 
 /* Layout */
-@import "./PageLayout.css";
+@import './PageLayout.css';
 
 /* Pages */
-@import "./Home.css";
+@import './Home.css';
 
 /* Utilities */
-@import "./animations.css";
-@import "./PrivacyPage.css";
-@import "./TermsPage.css";
+@import './animations.css';
+@import './PrivacyPage.css';
+@import './TermsPage.css';

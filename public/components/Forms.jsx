@@ -1,12 +1,12 @@
-import React from "react";
-import FormLabel from "./FormLabel";
-import FormInput from "./FormInput";
-import FormButton from "./FormButton";
-import "../../src/styles/form.css";
+import React from 'react';
+import FormLabel from './FormLabel';
+import FormInput from './FormInput';
+import FormButton from './FormButton';
+import '../../src/styles/form.css';
 
 const Forms = ({
   value,
-  type = "text",
+  type = 'text',
   placeholder,
   classNameLabel,
   name,
@@ -18,8 +18,8 @@ const Forms = ({
   required = false,
   error,
   icon,
-  buttonVariant = "primary",
-  buttonSize = "medium",
+  buttonVariant = 'primary',
+  buttonSize = 'medium',
   children,
 }) => {
   const handleSubmit = (e) => {

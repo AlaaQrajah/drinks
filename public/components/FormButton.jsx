@@ -1,15 +1,15 @@
-import React from "react";
-import "../../src/styles/FormButton.css";
+import React from 'react';
+import '../../src/styles/FormButton.css';
 
 const FormButton = ({
-  type = "submit",
+  type = 'submit',
   text,
   onClick,
-  variant = "primary",
-  size = "medium",
+  variant = 'primary',
+  size = 'medium',
   icon,
   disabled = false,
-  className = "",
+  className = '',
 }) => {
   return (
     <button

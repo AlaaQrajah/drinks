@@ -1,11 +1,11 @@
-import React from "react";
-import "../../src/styles/FormInput.css";
+import React from 'react';
+import '../../src/styles/FormInput.css';
 
 const FormInput = ({
   value,
-  type = "text",
+  type = 'text',
   placeholder,
-  className = "",
+  className = '',
   onChange,
   icon: Icon,
   name,
@@ -21,7 +21,7 @@ const FormInput = ({
   max,
 }) => {
   return (
-    <div className={`form-input-wrapper ${error ? "has-error" : ""}`}>
+    <div className={`form-input-wrapper ${error ? 'has-error' : ''}`}>
       {label && (
         <label htmlFor={name} className="form-input-label">
           {label} {required && <span className="required-mark">*</span>}
@@ -34,8 +34,8 @@ const FormInput = ({
           type={type}
           name={name}
           placeholder={placeholder}
-          className={`form-input ${className} ${Icon ? "with-icon" : ""} ${
-            error ? "input-error" : ""
+          className={`form-input ${className} ${Icon ? 'with-icon' : ''} ${
+            error ? 'input-error' : ''
           }`}
           value={value}
           onChange={onChange}

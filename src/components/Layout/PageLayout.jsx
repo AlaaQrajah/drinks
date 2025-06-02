@@ -1,11 +1,11 @@
-import Container from "../Container/Container";
-import "../../styles/PageLayout.css";
-import "../../styles/FormInput.css";
+import Container from '../Container/Container';
+import '../../styles/PageLayout.css';
+import '../../styles/FormInput.css';
 
 const PageLayout = ({
   children,
-  className = "",
-  containerClassName = "",
+  className = '',
+  containerClassName = '',
   fluid = false,
   noContainer = false,
 }) => {

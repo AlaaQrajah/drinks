@@ -104,9 +104,9 @@
 }
 
 /* Different input types */
-.form-input[type="date"],
-.form-input[type="time"],
-.form-input[type="datetime-local"] {
+.form-input[type='date'],
+.form-input[type='time'],
+.form-input[type='datetime-local'] {
   padding-right: 0.5rem;
 }
 

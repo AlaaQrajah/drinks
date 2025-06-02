@@ -99,7 +99,9 @@
   padding: 2.5rem;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
   animation: fadeIn 0.8s ease-out;
 }
 
@@ -113,7 +115,7 @@
 }
 
 .terms-page__title::after {
-  content: "";
+  content: '';
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -176,7 +178,7 @@
 }
 
 .terms-page__list li::before {
-  content: "•";
+  content: '•';
   position: absolute;
   left: 0;
   color: #ff5e5b;

@@ -21,7 +21,9 @@
   font-weight: bold;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
   cursor: pointer;
-  transition: background 0.2s, transform 0.2s;
+  transition:
+    background 0.2s,
+    transform 0.2s;
   margin-left: 0;
 }
 .register-home-btn:hover {
@@ -61,7 +63,7 @@
 .register-title::before,
 .register-title::after {
   position: absolute;
-  content: "";
+  content: '';
   height: 18px;
   width: 18px;
   border-radius: 50%;
@@ -181,7 +183,7 @@
 }
 
 .submit,
-.register-form button[type="submit"] {
+.register-form button[type='submit'] {
   border: none;
   outline: none;
   padding: 12px;
@@ -191,12 +193,14 @@
   background: linear-gradient(90deg, #ff6b6b, #ffb347);
   font-weight: 700;
   margin-top: 10px;
-  transition: background 0.2s, transform 0.2s;
+  transition:
+    background 0.2s,
+    transform 0.2s;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .submit:hover,
-.register-form button[type="submit"]:hover {
+.register-form button[type='submit']:hover {
   background: linear-gradient(90deg, #ffb347, #ff6b6b);
   transform: translateY(-2px) scale(1.04);
 }

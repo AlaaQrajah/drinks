@@ -1,5 +1,5 @@
-import { useTranslation } from "react-i18next";
-import "../../styles/FilterBar.css";
+import { useTranslation } from 'react-i18next';
+import '../../styles/FilterBar.css';
 
 const FilterBar = ({
   filterType,
@@ -16,17 +16,17 @@ const FilterBar = ({
         value={filterType}
         onChange={(e) => setFilterType(e.target.value)}
       >
-        <option value="category">{t("filter.category")}</option>
-        <option value="glass">{t("filter.glass")}</option>
-        <option value="ingredient">{t("filter.ingredient")}</option>
-        <option value="alcohol">{t("filter.alcohol")}</option>
+        <option value="category">{t('filter.category')}</option>
+        <option value="glass">{t('filter.glass')}</option>
+        <option value="ingredient">{t('filter.ingredient')}</option>
+        <option value="alcohol">{t('filter.alcohol')}</option>
       </select>
       <select
         className="filterbar__select"
         value={filterValue}
         onChange={(e) => setFilterValue(e.target.value)}
       >
-        <option value="">{t("filter.select")}</option>
+        <option value="">{t('filter.select')}</option>
         {filterOptions.map((opt) => (
           <option key={opt} value={opt}>
             {opt}

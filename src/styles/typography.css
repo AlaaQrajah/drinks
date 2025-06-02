@@ -1,9 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
 
 /* Typography Scale */
 :root {
-  --font-family-primary: "Cairo", sans-serif;
-  --font-family-secondary: "Space Grotesk", sans-serif;
+  --font-family-primary: 'Inter', sans-serif;
+  --font-family-secondary: 'Space Grotesk', sans-serif;
 
   /* Font Sizes */
   --text-xs: 0.75rem; /* 12px */

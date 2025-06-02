@@ -1,11 +1,11 @@
-import React, { useState, useCallback } from "react";
-import "../../styles/LoginHero.css";
-import FormInput from "../../../public/components/FormInput";
-import FormButton from "../../../public/components/FormButton";
-import { useTranslation } from "react-i18next";
-import { useAuth } from "../Context/AuthContext";
-import { useNavigate } from "react-router-dom";
-import { FaUser, FaLock } from "react-icons/fa";
+import React, { useState, useCallback } from 'react';
+import '../../styles/LoginHero.css';
+import FormInput from '../../../public/components/FormInput';
+import FormButton from '../../../public/components/FormButton';
+import { useTranslation } from 'react-i18next';
+import { useAuth } from '../Context/AuthContext';
+import { useNavigate } from 'react-router-dom';
+import { FaUser, FaLock } from 'react-icons/fa';
 
 const LoginHero = () => {
   const { t } = useTranslation();
@@ -13,8 +13,8 @@ const LoginHero = () => {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    emailOrPhone: "",
-    password: "",
+    emailOrPhone: '',
+    password: '',
   });
 
   // State to hold validation errors
@@ -37,10 +37,10 @@ const LoginHero = () => {
   const validateForm = useCallback(() => {
     const newErrors = {};
     if (!formData.emailOrPhone.trim()) {
-      newErrors.emailOrPhone = t("login.errors.emailOrUsernameRequired");
+      newErrors.emailOrPhone = t('login.errors.emailOrUsernameRequired');
     }
     if (!formData.password.trim()) {
-      newErrors.password = t("login.errors.passwordRequired");
+      newErrors.password = t('login.errors.passwordRequired');
     }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -51,7 +51,7 @@ const LoginHero = () => {
     // Validate the form before attempting submission
     if (validateForm()) {
       // Add your login logic here
-      console.log("Login form submitted:", formData);
+      console.log('Login form submitted:', formData);
       // For now, simulate a successful login
       const userData = {
         // Replace with actual user data from backend
@@ -59,7 +59,7 @@ const LoginHero = () => {
         // Do not store password in local storage
       };
       login(userData); // Call login from AuthContext
-      navigate("/application"); // Navigate to application page after login
+      navigate('/application'); // Navigate to application page after login
     }
   };
 
@@ -73,12 +73,12 @@ const LoginHero = () => {
 
       {/* Add noValidate to prevent default browser validation */}
       <form onSubmit={handleSubmit} noValidate>
-        <h3>{t("login.title")}</h3>
+        <h3>{t('login.title')}</h3>
 
         {/* Use FormInput component for Username/Email */}
         {/* Pass the specific error message for emailOrPhone */}
         <FormInput
-          label={t("login.emailOrUsername")}
+          label={t('login.emailOrUsername')}
           type="text"
           name="emailOrPhone"
           placeholder=" "
@@ -92,7 +92,7 @@ const LoginHero = () => {
         {/* Use FormInput component for Password */}
         {/* Pass the specific error message for password */}
         <FormInput
-          label={t("register.password")} // Reusing register.password for consistency, or add a new login.password key and use it here
+          label={t('register.password')} // Reusing register.password for consistency, or add a new login.password key and use it here
           type="password"
           name="password"
           placeholder=" "
@@ -104,7 +104,7 @@ const LoginHero = () => {
         />
 
         {/* Use FormButton component for the submit button */}
-        <FormButton type="submit" text={t("login.submit")} />
+        <FormButton type="submit" text={t('login.submit')} />
 
         {/* Keep the social login section */}
         <div className="social">

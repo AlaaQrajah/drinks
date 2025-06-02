@@ -1,9 +1,9 @@
-import { useQuery } from "@tanstack/react-query";
-import api from "../services/api-client";
+import { useQuery } from '@tanstack/react-query';
+import api from '../services/api-client';
 
 const fetchCategories = async () => {
   try {
-    const res = await api.get("list.php?c=list");
+    const res = await api.get('list.php?c=list');
     return (
       res.data.drinks?.map((drink) => ({
         value: drink.strCategory,
@@ -11,14 +11,14 @@ const fetchCategories = async () => {
       })) || []
     );
   } catch (error) {
-    console.error("Error fetching categories:", error);
+    console.error('Error fetching categories:', error);
     return [];
   }
 };
 
 const fetchAlcoholicTypes = async () => {
   try {
-    const res = await api.get("list.php?a=list");
+    const res = await api.get('list.php?a=list');
     return (
       res.data.drinks?.map((drink) => ({
         value: drink.strAlcoholic,
@@ -26,14 +26,14 @@ const fetchAlcoholicTypes = async () => {
       })) || []
     );
   } catch (error) {
-    console.error("Error fetching alcoholic types:", error);
+    console.error('Error fetching alcoholic types:', error);
     return [];
   }
 };
 
 const fetchGlasses = async () => {
   try {
-    const res = await api.get("list.php?g=list");
+    const res = await api.get('list.php?g=list');
     return (
       res.data.drinks?.map((drink) => ({
         value: drink.strGlass,
@@ -41,14 +41,14 @@ const fetchGlasses = async () => {
       })) || []
     );
   } catch (error) {
-    console.error("Error fetching glasses:", error);
+    console.error('Error fetching glasses:', error);
     return [];
   }
 };
 
 const fetchIngredients = async () => {
   try {
-    const res = await api.get("list.php?i=list");
+    const res = await api.get('list.php?i=list');
     return (
       res.data.drinks?.map((drink) => ({
         value: drink.strIngredient1,
@@ -56,34 +56,34 @@ const fetchIngredients = async () => {
       })) || []
     );
   } catch (error) {
-    console.error("Error fetching ingredients:", error);
+    console.error('Error fetching ingredients:', error);
     return [];
   }
 };
 
 const useFormOptions = () => {
   const { data: categories = [], isLoading: loadingCategories } = useQuery({
-    queryKey: ["categories"],
+    queryKey: ['categories'],
     queryFn: fetchCategories,
-    staleTime: 24 * 60 * 60 * 1000, // 24 hours
+    // staleTime: 24 * 60 * 60 * 1000, // 24 hours
   });
 
   const { data: alcoholics = [], isLoading: loadingAlcoholics } = useQuery({
-    queryKey: ["alcoholics"],
+    queryKey: ['alcoholics'],
     queryFn: fetchAlcoholicTypes,
-    staleTime: 24 * 60 * 60 * 1000, // 24 hours
+    // staleTime: 24 * 60 * 60 * 1000, // 24 hours
   });
 
   const { data: glasses = [], isLoading: loadingGlasses } = useQuery({
-    queryKey: ["glasses"],
+    queryKey: ['glasses'],
     queryFn: fetchGlasses,
-    staleTime: 24 * 60 * 60 * 1000, // 24 hours
+    // staleTime: 24 * 60 * 60 * 1000, // 24 hours
   });
 
   const { data: ingredients = [], isLoading: loadingIngredients } = useQuery({
-    queryKey: ["ingredients"],
+    queryKey: ['ingredients'],
     queryFn: fetchIngredients,
-    staleTime: 24 * 60 * 60 * 1000, // 24 hours
+    // staleTime: 24 * 60 * 60 * 1000, // 24 hours
   });
 
   return {

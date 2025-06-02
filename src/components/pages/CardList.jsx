@@ -1,5 +1,5 @@
-import Card from "./Card";
-import "../../styles/CardList.css";
+import Card from './Card';
+import '../../styles/CardList.css';
 
 const CardList = ({ items, type, onCardClick }) => {
   // Ensure items is always an array

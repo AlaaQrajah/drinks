@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext, useEffect } from "react";
+import React, { createContext, useState, useContext, useEffect } from 'react';
 
 const AuthContext = createContext(null);
 
@@ -8,7 +8,7 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     // Check if user is logged in from localStorage
-    const storedUser = localStorage.getItem("cocktaildb_user");
+    const storedUser = localStorage.getItem('cocktaildb_user');
     if (storedUser) {
       setUser(JSON.parse(storedUser));
     }
@@ -17,12 +17,12 @@ export const AuthProvider = ({ children }) => {
 
   const login = (userData) => {
     setUser(userData);
-    localStorage.setItem("cocktaildb_user", JSON.stringify(userData));
+    localStorage.setItem('cocktaildb_user', JSON.stringify(userData));
   };
 
   const logout = () => {
     setUser(null);
-    localStorage.removeItem("cocktaildb_user");
+    localStorage.removeItem('cocktaildb_user');
   };
 
   return (

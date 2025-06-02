@@ -63,7 +63,8 @@
   ); /* A deeper, more vibrant gradient, slightly more transparent */
   border: 2px solid rgba(255, 111, 0, 0.3); /* Accent border */
   border-radius: 25px; /* More pronounced rounded corners */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4),
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.4),
     inset 0 0 10px rgba(255, 111, 0, 0.15); /* Stronger shadow with inner glow */
   padding: 2rem 2.5rem; /* Increased padding */
   line-height: 1.8; /* Slightly tighter line spacing */
@@ -177,7 +178,9 @@
   font-size: 1.1rem;
   font-family: var(--font-family-primary);
   font-weight: 500;
-  transition: border 0.2s, box-shadow 0.2s;
+  transition:
+    border 0.2s,
+    box-shadow 0.2s;
   outline: none;
   margin-bottom: 0.2rem;
 }
@@ -194,7 +197,10 @@
   border-radius: 12px;
   margin: 0 0.5rem;
   box-shadow: 0 2px 16px 0 rgba(255, 111, 0, 0.15);
-  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  transition:
+    background 0.2s,
+    transform 0.2s,
+    box-shadow 0.2s;
 }
 .btn-donate:hover {
   background-position: right top;
@@ -218,7 +224,7 @@
 }
 
 /* دعم RTL */
-html[dir="rtl"] .application-form-card {
+html[dir='rtl'] .application-form-card {
   direction: rtl;
   text-align: right;
 }

@@ -1,6 +1,6 @@
-import { Navigate, useLocation } from "react-router-dom";
-import { useAuth } from "../../src/components/Context/AuthContext";
-import LoadingSpinner from "./LoadingSpinner";
+import { Navigate, useLocation } from 'react-router-dom';
+import { useAuth } from '../../src/components/Context/AuthContext';
+import LoadingSpinner from './LoadingSpinner';
 
 const ProtectedRoute = ({ children }) => {
   const { user, loading } = useAuth();

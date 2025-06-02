@@ -1,11 +1,11 @@
-import React from "react";
-import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
-import FormInput from "../../../public/components/FormInput";
-import FormButton from "../../../public/components/FormButton";
-import "../../styles/RegisterForm.css";
-import useRegisterForm from "../../hooks/useRegisterForm";
-import { FaUser, FaEnvelope, FaLock } from "react-icons/fa";
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
+import FormInput from '../../../public/components/FormInput';
+import FormButton from '../../../public/components/FormButton';
+import '../../styles/RegisterForm.css';
+import useRegisterForm from '../../hooks/useRegisterForm';
+import { FaUser, FaEnvelope, FaLock } from 'react-icons/fa';
 
 const RegisterForm = () => {
   const { t } = useTranslation();
@@ -20,14 +20,14 @@ const RegisterForm = () => {
         <div className="shape"></div>
         <div className="shape"></div>
       </div>
-      <button className="register-home-btn" onClick={() => navigate("/")}>
-        {t("navbar.home")}
+      <button className="register-home-btn" onClick={() => navigate('/')}>
+        {t('navbar.home')}
       </button>
       <form className="register-form" onSubmit={handleSubmit} noValidate>
-        <p className="register-title">{t("register.title")}</p>
-        <p className="register-message">{t("register.message")}</p>
+        <p className="register-title">{t('register.title')}</p>
+        <p className="register-message">{t('register.message')}</p>
         {submitted && (
-          <div className="register-success">{t("register.success")}</div>
+          <div className="register-success">{t('register.success')}</div>
         )}
         <div className="register-flex">
           <label>
@@ -37,10 +37,10 @@ const RegisterForm = () => {
               placeholder=" "
               value={form.firstname}
               onChange={handleChange}
-              className={errors.firstname ? "input error" : "input"}
+              className={errors.firstname ? 'input error' : 'input'}
               icon={FaUser}
             />
-            <span>{t("register.firstname")}</span>
+            <span>{t('register.firstname')}</span>
             {errors.firstname && (
               <div className="register-error">{errors.firstname}</div>
             )}
@@ -52,10 +52,10 @@ const RegisterForm = () => {
               placeholder=" "
               value={form.lastname}
               onChange={handleChange}
-              className={errors.lastname ? "input error" : "input"}
+              className={errors.lastname ? 'input error' : 'input'}
               icon={FaUser}
             />
-            <span>{t("register.lastname")}</span>
+            <span>{t('register.lastname')}</span>
             {errors.lastname && (
               <div className="register-error">{errors.lastname}</div>
             )}
@@ -68,10 +68,10 @@ const RegisterForm = () => {
             placeholder=" "
             value={form.email}
             onChange={handleChange}
-            className={errors.email ? "input error" : "input"}
+            className={errors.email ? 'input error' : 'input'}
             icon={FaEnvelope}
           />
-          <span>{t("register.email")}</span>
+          <span>{t('register.email')}</span>
           {errors.email && <div className="register-error">{errors.email}</div>}
         </label>
         <label>
@@ -81,10 +81,10 @@ const RegisterForm = () => {
             placeholder=" "
             value={form.password}
             onChange={handleChange}
-            className={errors.password ? "input error" : "input"}
+            className={errors.password ? 'input error' : 'input'}
             icon={FaLock}
           />
-          <span>{t("register.password")}</span>
+          <span>{t('register.password')}</span>
           {errors.password && (
             <div className="register-error">{errors.password}</div>
           )}
@@ -96,17 +96,17 @@ const RegisterForm = () => {
             placeholder=" "
             value={form.confirmPassword}
             onChange={handleChange}
-            className={errors.confirmPassword ? "input error" : "input"}
+            className={errors.confirmPassword ? 'input error' : 'input'}
             icon={FaLock}
           />
-          <span>{t("register.confirmPassword")}</span>
+          <span>{t('register.confirmPassword')}</span>
           {errors.confirmPassword && (
             <div className="register-error">{errors.confirmPassword}</div>
           )}
         </label>
-        <FormButton type="submit" text={t("register.submit")} />
+        <FormButton type="submit" text={t('register.submit')} />
         <p className="register-signin">
-          {t("register.signinText")} <a href="#">{t("register.signinLink")}</a>
+          {t('register.signinText')} <a href="#">{t('register.signinLink')}</a>
         </p>
       </form>
     </div>

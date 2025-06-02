@@ -5,7 +5,9 @@
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
   overflow: hidden;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -42,7 +44,9 @@
 .card:hover,
 .card:focus,
 .card:active {
-  box-shadow: 0 8px 32px 0 rgba(60, 179, 113, 0.18), var(--shadow-lg);
+  box-shadow:
+    0 8px 32px 0 rgba(60, 179, 113, 0.18),
+    var(--shadow-lg);
   outline: none;
 }
 
@@ -140,4 +144,20 @@
   .card__desc {
     font-size: var(--text-xs);
   }
+}
+
+.button {
+  padding: 10px 20px;
+  border: 1px solid rgb(83, 4, 4);
+  background-color: brown;
+  color: white;
+  width: 100%;
+  cursor: pointer;
+}
+.cart {
+  display: none;
+  transition: 0.3s;
+}
+.card:hover .cart {
+  display: block;
 }

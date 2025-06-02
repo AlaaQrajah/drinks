@@ -1,17 +1,17 @@
-import { Routes, Route } from "react-router-dom";
-import Home from "../components/pages/Home";
-import ErrorPage from "../../public/components/ErrorPage";
-import DrinkDetails from "../components/pages/DrinkDetails";
-import ApplicationForm from "../components/pages/ApplicationForm";
-import PrivacyPage from "../components/pages/PrivacyPage";
-import TermsPage from "../components/pages/TermsPage";
+import { Routes, Route } from 'react-router-dom';
+import Home from '../components/pages/Home';
+import ErrorPage from '../../public/components/ErrorPage';
+import DrinkDetails from '../components/pages/DrinkDetails';
+import ApplicationForm from '../components/pages/ApplicationForm';
+import PrivacyPage from '../components/pages/PrivacyPage';
+import TermsPage from '../components/pages/TermsPage';
 // import AboutPage from "../components/pages/AboutPage";
-import AboutPage from "../components/pages/AboutPage";
-import RecipesPage from "../components/pages/RecipesPage";
-import ContactPage from "../components/pages/ContactPage";
-import CategoryPage from "../components/pages/CategoryPage";
-import LoginHero from "../components/pages/LoginHero";
-import ProtectedRoute from "../../public/components/ProtectedRoute";
+import AboutPage from '../components/pages/AboutPage';
+import RecipesPage from '../components/pages/RecipesPage';
+import ContactPage from '../components/pages/ContactPage';
+import CategoryPage from '../components/pages/CategoryPage';
+import LoginHero from '../components/pages/LoginHero';
+import ProtectedRoute from '../../public/components/ProtectedRoute';
 
 const Router = () => {
   return (

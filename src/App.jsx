@@ -1,9 +1,8 @@
-import LayoutRoute from "./Layout/LayoutRoute";
-import Layout from "./Layout/Layout";
-import "./styles/index.css";
-import Router from "./Router/Router";
-import LoginHero from "./components/pages/LoginHero";
-import { AuthProvider } from "./components/Context/AuthContext";
+import LayoutRoute from './Layout/LayoutRoute';
+import Layout from './Layout/Layout';
+import './styles/index.css';
+import Router from './Router/Router';
+import { AuthProvider } from './components/Context/AuthContext';
 
 function App() {
   return (
@@ -14,7 +13,6 @@ function App() {
         </Layout>
       </LayoutRoute>
     </AuthProvider>
-    /* <LoginHero />*/
   );
 }
 

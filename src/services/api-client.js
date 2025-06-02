@@ -1,11 +1,11 @@
-import axios from "axios";
+import axios from 'axios';
 
 const apiClient = axios.create({
-  baseURL: "https://www.thecocktaildb.com/api/json/v1/1/",
+  baseURL: 'https://www.thecocktaildb.com/api/json/v1/1/',
   timeout: 10000, // 10 seconds timeout
   headers: {
-    "Content-Type": "application/json",
-    Accept: "application/json",
+    'Content-Type': 'application/json',
+    Accept: 'application/json',
   },
 });
 
@@ -29,13 +29,13 @@ apiClient.interceptors.response.use(
     // Handle common errors
     if (error.response) {
       // Server responded with a status code outside of 2xx range
-      console.error("API Error:", error.response.status, error.response.data);
+      console.error('API Error:', error.response.status, error.response.data);
     } else if (error.request) {
       // Request was made but no response was received
-      console.error("Network Error: No response received");
+      console.error('Network Error: No response received');
     } else {
       // Something else happened while setting up the request
-      console.error("Request Error:", error.message);
+      console.error('Request Error:', error.message);
     }
 
     return Promise.reject(error);

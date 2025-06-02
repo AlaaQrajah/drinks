@@ -1,9 +1,9 @@
-import "../../src/styles/ErrorPage.css";
-import Image from "./Image";
-import illustration from "../../public/assets/404-illustration.jpg";
-import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
-import { FaHome } from "react-icons/fa";
+import '../../src/styles/ErrorPage.css';
+import Image from './Image';
+import illustration from '../../public/assets/404-illustration.jpg';
+import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { FaHome } from 'react-icons/fa';
 
 const ErrorPage = () => {
   const { t } = useTranslation();
@@ -25,10 +25,10 @@ const ErrorPage = () => {
         </div>
         <div className="errorpage-text">
           <h1 className="errorpage-title">ERROR 404</h1>
-          <h2 className="errorpage-subtitle">{t("errorpage.subtitle")}</h2>
-          <p className="errorpage-description">{t("errorpage.description")}</p>
+          <h2 className="errorpage-subtitle">{t('errorpage.subtitle')}</h2>
+          <p className="errorpage-description">{t('errorpage.description')}</p>
           <Link to="/" className="errorpage-button">
-            <FaHome className="home-icon" /> {t("errorpage.link")}
+            <FaHome className="home-icon" /> {t('errorpage.link')}
           </Link>
         </div>
       </div>

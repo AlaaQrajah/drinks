@@ -1,9 +1,9 @@
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
-import Navbar from "../components/pages/Navbar";
-import Footer from "../components/pages/Footer";
-import PageLayout from "../components/Layout/PageLayout";
-import "../styles/Layout.css";
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import Navbar from '../components/pages/Navbar';
+import Footer from '../components/pages/Footer';
+import PageLayout from '../components/Layout/PageLayout';
+import '../styles/Layout.css';
 
 const Layout = ({ children }) => {
   const location = useLocation();

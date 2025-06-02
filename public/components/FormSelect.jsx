@@ -1,12 +1,12 @@
-import React from "react";
-import { FiChevronDown } from "react-icons/fi";
-import "../../src/styles/FormSelect.css";
+import React from 'react';
+import { FiChevronDown } from 'react-icons/fi';
+import '../../src/styles/FormSelect.css';
 
 const FormSelect = ({
   id,
   name,
   options = [],
-  className = "",
+  className = '',
   value,
   onChange,
   placeholder,
@@ -17,7 +17,7 @@ const FormSelect = ({
   icon: Icon,
 }) => {
   return (
-    <div className={`form-select-wrapper ${error ? "has-error" : ""}`}>
+    <div className={`form-select-wrapper ${error ? 'has-error' : ''}`}>
       {label && (
         <label htmlFor={id} className="form-input-label">
           {label} {required && <span className="required-mark">*</span>}
@@ -29,8 +29,8 @@ const FormSelect = ({
         <select
           id={id}
           name={name}
-          className={`form-select ${className} ${Icon ? "with-icon" : ""} ${
-            error ? "select-error" : ""
+          className={`form-select ${className} ${Icon ? 'with-icon' : ''} ${
+            error ? 'select-error' : ''
           }`}
           value={value}
           onChange={onChange}

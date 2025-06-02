@@ -64,7 +64,7 @@
 }
 
 .drink-details__meta span:not(:last-child)::after {
-  content: "•"; /* Added separator */
+  content: '•'; /* Added separator */
   position: absolute;
   right: -15px; /* Adjust as needed for spacing */
   color: var(--color-accent);
@@ -96,7 +96,7 @@
 }
 
 .drink-details__ingredients li::before {
-  content: "\2022"; /* Custom bullet point (Unicode bullet) */
+  content: '\2022'; /* Custom bullet point (Unicode bullet) */
   color: var(--color-accent); /* Bullet color */
   font-weight: bold;
   display: inline-block;
