@@ -1,19 +1,19 @@
-import { useState, useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
-import useFetchFilteredDrink from './useFetchFilteredDrink';
+import { useState, useCallback, useEffect } from "react";
+import { useTranslation } from "react-i18next";
+import useFetchFilteredDrink from "./useFetchFilteredDrink";
 
 const useApplicationForm = () => {
   const { t } = useTranslation();
 
   const [step, setStep] = useState(1);
   const [form, setForm] = useState({
-    name: '',
-    surname: '',
-    phone: '',
-    email: '',
-    category: '',
-    alcoholic: '',
-    glass: '',
+    name: "",
+    surname: "",
+    phone: "",
+    email: "",
+    category: "",
+    alcoholic: "",
+    glass: "",
     ingredients: [],
   });
   const [errors, setErrors] = useState({});
@@ -31,24 +31,31 @@ const useApplicationForm = () => {
   const validateStep = useCallback(() => {
     const newErrors = {};
     if (step === 1) {
-      if (!form.name.trim()) newErrors.name = t('form.errors.name');
-      if (!form.surname.trim()) newErrors.surname = t('form.errors.surname');
-      if (!form.phone.trim()) newErrors.phone = t('form.errors.phone');
+      if (!form.name.trim()) newErrors.name = t("form.errors.name");
+      if (!form.surname.trim()) newErrors.surname = t("form.errors.surname");
+      if (!form.phone.trim()) newErrors.phone = t("form.errors.phone");
       else if (!/^\+?[0-9\s\-()]{8,}$/.test(form.phone))
-        newErrors.phone = t('form.errors.phoneInvalid');
-      if (!form.email.trim()) newErrors.email = t('form.errors.email');
+        newErrors.phone = t("form.errors.phoneInvalid");
+      if (!form.email.trim()) newErrors.email = t("form.errors.email");
       else if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(form.email))
-        newErrors.email = t('form.errors.emailInvalid');
+        newErrors.email = t("form.errors.emailInvalid");
     } else if (step === 2) {
-      if (!form.category) newErrors.category = t('form.errors.category');
-      if (!form.alcoholic) newErrors.alcoholic = t('form.errors.alcoholic');
-      if (!form.glass) newErrors.glass = t('form.errors.glass');
+      if (!form.category) newErrors.category = t("form.errors.category");
+      if (!form.alcoholic) newErrors.alcoholic = t("form.errors.alcoholic");
+      if (!form.glass) newErrors.glass = t("form.errors.glass");
       if (!form.ingredients || form.ingredients.length === 0)
-        newErrors.ingredients = t('form.errors.ingredients');
+        newErrors.ingredients = t("form.errors.ingredients");
     }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   }, [form, step, t]);
+
+  // Effect to re-validate when language changes if errors exist
+  useEffect(() => {
+    if (Object.keys(errors).length > 0) {
+      validateStep();
+    }
+  }, [t, step, form, errors, validateStep]); // Added errors and validateStep to dependencies
 
   const handleChange = useCallback((e) => {
     const { name, value } = e.target;
@@ -70,13 +77,13 @@ const useApplicationForm = () => {
 
   const resetForm = useCallback(() => {
     setForm({
-      name: '',
-      surname: '',
-      phone: '',
-      email: '',
-      category: '',
-      alcoholic: '',
-      glass: '',
+      name: "",
+      surname: "",
+      phone: "",
+      email: "",
+      category: "",
+      alcoholic: "",
+      glass: "",
       ingredients: [],
     });
     setErrors({});
@@ -99,7 +106,7 @@ const useApplicationForm = () => {
           });
           setStep(step + 1);
         } catch (error) {
-          console.error('Error fetching drink:', error);
+          console.error("Error fetching drink:", error);
         } finally {
           setIsSubmitting(false);
         }

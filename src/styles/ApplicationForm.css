@@ -136,7 +136,7 @@
   font-size: 0.95em;
   margin-top: 2px;
   min-height: 18px;
-  text-align: start;
+  text-align: center;
 }
 
 .form-actions {
@@ -224,7 +224,7 @@
 }
 
 /* دعم RTL */
-html[dir='rtl'] .application-form-card {
+html[dir="rtl"] .application-form-card {
   direction: rtl;
   text-align: right;
 }

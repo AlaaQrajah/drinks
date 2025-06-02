@@ -1,26 +1,26 @@
-import React, { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
-import api from '../../services/api-client';
-import CardList from './CardList';
-import '../../styles/Home.css';
-import ErrorPage from '../../../public/components/ErrorPage';
-import LoadingSpinner from '../../../public/components/LoadingSpinner';
-import FormButton from '../../../public/components/FormButton';
-import useIngredients from '../../hooks/useIngredients';
-import useLatestDrinks from '../../hooks/useLatestDrinks';
-import usePopularDrinks from '../../hooks/usePopularDrinks';
-import { getRandomItems } from '../../utils/array';
-import { useAuth } from '../Context/AuthContext';
+import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
+import api from "../../services/api-client";
+import CardList from "./CardList";
+import "../../styles/Home.css";
+import ErrorPage from "../../../public/components/ErrorPage";
+import LoadingSpinner from "../../../public/components/LoadingSpinner";
+import FormButton from "../../../public/components/FormButton";
+import useIngredients from "../../hooks/useIngredients";
+import useLatestDrinks from "../../hooks/useLatestDrinks";
+import usePopularDrinks from "../../hooks/usePopularDrinks";
+import { getRandomItems } from "../../utils/array";
+import { useAuth } from "../Context/AuthContext";
 
 // Import Swiper React components and styles
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation'; // Import navigation styles
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation"; // Import navigation styles
 
 // Import required Swiper modules
-import { Pagination, Navigation, Autoplay } from 'swiper/modules'; // Import Navigation and Autoplay modules
+import { Pagination, Navigation, Autoplay } from "swiper/modules"; // Import Navigation and Autoplay modules
 
 const Home = () => {
   const { t } = useTranslation();
@@ -58,63 +58,80 @@ const Home = () => {
   // fffffff
   if (errorPopular) return <ErrorPage />;
   /**dfjd */
-  if (loadingPopular)
-    return <LoadingSpinner fullScreen={true} overlay={true} />;
+  // if (loadingPopular)
+  //   return <LoadingSpinner />;
 
   return (
     <div className="home">
       <section className="home__hero">
-        <h1 className="home__title">{t('home.title')}</h1>
-        <p className="home__description">{t('home.description')}</p>
+        <h1 className="home__title">{t("home.title")}</h1>
+        <p className="home__description">{t("home.description")}</p>
         <FormButton
-          text={t('home.apply')}
+          text={t("home.apply")}
           className="home__apply-btn"
-          onClick={() => navigate('/application')}
+          onClick={() => navigate("/application")}
         />
       </section>
 
       <section className="home__section">
-        <h2 className="home__section-title">{t('home.popularDrinks')}</h2>
+        <h2 className="home__section-title">{t("home.popularDrinks")}</h2>
 
         {/* Display popular drinks in a Swiper carousel before login */}
         {!user ? (
-          <Swiper
-            slidesPerView={1}
-            spaceBetween={10}
-            pagination={{
-              clickable: true,
-            }}
-            navigation={true} // Enable navigation arrows
-            autoplay={{
-              delay: 5000, // Autoplay delay in ms
-              disableOnInteraction: false, // Keep autoplaying after user interaction
-            }}
-            breakpoints={{
-              640: {
-                slidesPerView: 2,
-                spaceBetween: 20,
-              },
-              768: {
-                slidesPerView: 3,
-                spaceBetween: 30,
-              },
-              1024: {
-                slidesPerView: 4,
-                spaceBetween: 40,
-              },
-            }}
-            modules={[Pagination, Navigation, Autoplay]} // Add Navigation and Autoplay modules
-            className="popular-drinks-swiper"
-          >
-            {popularDrinks.map((drink) => (
-              <SwiperSlide key={drink.idDrink}>
-                {/* Wrap single drink in array for CardList and center it */}
-                <div style={{ display: 'flex', justifyContent: 'center' }}>
-                  <CardList items={[drink]} type="drink" />
+          loadingPopular ? (
+            <div className="loading-cards">
+              {[1, 2, 3, 4].map((index) => (
+                <div key={index} className="card-loading">
+                  <LoadingSpinner size="small" />
                 </div>
-              </SwiperSlide>
+              ))}
+            </div>
+          ) : (
+            <Swiper
+              slidesPerView={1}
+              spaceBetween={10}
+              pagination={{
+                clickable: true,
+              }}
+              navigation={true}
+              autoplay={{
+                delay: 5000,
+                disableOnInteraction: false,
+              }}
+              breakpoints={{
+                640: {
+                  slidesPerView: 2,
+                  spaceBetween: 20,
+                },
+                768: {
+                  slidesPerView: 3,
+                  spaceBetween: 30,
+                },
+                1024: {
+                  slidesPerView: 4,
+                  spaceBetween: 40,
+                },
+              }}
+              modules={[Pagination, Navigation, Autoplay]}
+              className="popular-drinks-swiper"
+            >
+              {popularDrinks.map((drink) => (
+                <SwiperSlide key={drink.idDrink}>
+                  <div style={{ display: "flex", justifyContent: "center" }}>
+                    <CardList items={[drink]} type="drink" />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          )
+        ) : loadingPopular ? (
+          <div className="loading-cards">
+            {[1, 2, 3, 4].map((index) => (
+              <div key={index} className="card-loading">
+                <LoadingSpinner size="small" />
+              </div>
             ))}
-          </Swiper>
+          </div>
         ) : (
           <CardList items={popularDrinks} type="drink" />
         )}
@@ -124,7 +141,7 @@ const Home = () => {
         <>
           <section className="home__section">
             <h2 className="home__section-title">
-              {t('home.popularIngredients')}
+              {t("home.popularIngredients")}
             </h2>
             {loadingIngredients ? (
               <LoadingSpinner size="small" />
@@ -136,7 +153,7 @@ const Home = () => {
           </section>
 
           <section className="home__section">
-            <h2 className="home__section-title">{t('home.latestDrinks')}</h2>
+            <h2 className="home__section-title">{t("home.latestDrinks")}</h2>
             {loadingLatest ? (
               <LoadingSpinner size="small" />
             ) : loggedInSectionsError ? (
@@ -148,7 +165,7 @@ const Home = () => {
 
           <section className="home__section">
             <h2 className="home__section-title">
-              {t('home.randomIngredients')}
+              {t("home.randomIngredients")}
             </h2>
             {loadingIngredients ? (
               <LoadingSpinner size="small" />
