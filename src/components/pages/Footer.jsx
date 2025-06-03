@@ -17,9 +17,9 @@ const Footer = () => {
           <div className="footer__section">
             <h3 className="footer__title">
               <img width="30px" src={logo} alt={t('footer.title')} />
-              <span>
+               
                 <Link to="/">{t('footer.title')}</Link>
-              </span>
+               
             </h3>
             <p className="footer__description">{t('footer.subtitle')}</p>
           </div>
